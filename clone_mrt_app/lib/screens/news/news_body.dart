@@ -38,6 +38,7 @@ class NewsView extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(kBorderRadius),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -65,9 +66,14 @@ class NewsArticle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(
-          "assets/dummy_image.png",
-          fit: BoxFit.cover,
+        ClipRRect(
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(kBorderRadius),
+          ),
+          child: Image.asset(
+            newsList[index].newsImagePath,
+            fit: BoxFit.cover,
+          ),
         ),
         Padding(
           padding: EdgeInsets.all(kDefaultPadding),
