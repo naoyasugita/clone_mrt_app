@@ -115,7 +115,7 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  bool shouldRebuild(_StickyTabBarDelegate oldDelegate) {
+  bool shouldRebuild(_TabBarDelegate oldDelegate) {
     return tabBar != oldDelegate.tabBar;
   }
 }
