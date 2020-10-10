@@ -1,6 +1,7 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/live_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LiveCameraListView extends StatelessWidget {
   const LiveCameraListView({
@@ -36,7 +37,9 @@ class LiveCameraView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        _launchURL(liveCameraList[index].youtubeUrl);
+      },
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -53,6 +56,18 @@ class LiveCameraView extends StatelessWidget {
         child: LiveCameraArticle(index: index),
       ),
     );
+  }
+}
+
+_launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(
+      url,
+      forceSafariVC: true,
+      forceWebView: true,
+    );
+  } else {
+    throw 'Could not launch $url';
   }
 }
 
