@@ -15,7 +15,7 @@ class News {
 
 List<News> newsList = [
   News(
-      title: "title1",
+      title: contentText,
       timestamp: "2/27(月) 13:27:00",
       newsImagePath: "assets/dummy_image.png",
       content: contentText,
