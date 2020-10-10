@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/header_tab.dart';
+import 'package:clone_mrt_app/screens/news/news_body.dart';
 import 'package:flutter/material.dart';
 
 class MyAppHome extends StatelessWidget {
@@ -58,21 +59,45 @@ class BuildAppBar extends StatelessWidget {
           ),
         ];
       },
-      body: TabBarView(
-        children: tabs.map((_tab) {
-          return SafeArea(
-            child: ListView.builder(
-              key: PageStorageKey(_tab.name),
-              itemCount: 30,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Item $index'),
-                );
-              },
-            ),
-          );
-        }).toList(),
-      ),
+      body: Body(),
+    );
+  }
+}
+
+Container myContainer(String text) {
+  return Container(
+    alignment: Alignment.center,
+    width: 100,
+    height: 100,
+    child: Text(text),
+  );
+}
+
+class Body extends StatelessWidget {
+  const Body({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TabBarView(
+      children: [
+        NewsListView(),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+        myContainer("a"),
+      ],
     );
   }
 }
