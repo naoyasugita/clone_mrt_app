@@ -24,3 +24,5 @@ flutter:
   assets:
     - assets/dummy_image.png
     - assets/dummy_live_camera.png
+    - assets/dummy_cat.png
+    - assets/dummy_dog.png
