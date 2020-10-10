@@ -92,13 +92,16 @@ class NewsArticle extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.all(kDefaultPadding),
-          child: Text(
-            newsList[index].timestamp,
-            style: TextStyle(
-              fontSize: 10,
-              color: Colors.grey,
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: EdgeInsets.all(kDefaultPadding),
+            child: Text(
+              newsList[index].timestamp,
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.grey,
+              ),
             ),
           ),
         ),
