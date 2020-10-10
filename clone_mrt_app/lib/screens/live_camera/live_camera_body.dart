@@ -17,7 +17,7 @@ class LiveCameraListView extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        childAspectRatio: 0.7,
+        childAspectRatio: 0.8,
       ),
       itemBuilder: (context, index) {
         return LiveCameraView(index: index);
