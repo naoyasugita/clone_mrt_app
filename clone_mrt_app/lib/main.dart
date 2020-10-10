@@ -54,8 +54,10 @@ class MyAppHome extends StatelessWidget {
                     centerTitle: true,
                   ),
                   actions: [
-                    Icon(Icons.settings),
-                    Padding(padding: EdgeInsets.all(7)),
+                    IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () {},
+                    ),
                   ],
                 ),
                 SliverPersistentHeader(
