@@ -83,6 +83,7 @@ class UchinokoArticle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      // TODO: 画像の角を直接丸くするのをやめて、親ウィジェットをに合わせる
       children: [
         Center(
           child: ClipRRect(
