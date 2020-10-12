@@ -74,6 +74,10 @@ class _WeatherContent extends StatelessWidget {
               ),
             ),
           ]),
+          Divider(
+            thickness: 0.5,
+            color: Colors.grey,
+          ),
         ],
       ),
       alignment: Alignment.center,
