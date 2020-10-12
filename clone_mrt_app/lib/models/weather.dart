@@ -13,7 +13,7 @@ class WeatherModel {
   final String datetime;
   final int highestTemperature;
   final int lowestTemperature;
-  final List<int> rainyPercent;
+  final List<String> rainyPercent;
   final String updateDate;
 
   WeatherModel({
@@ -33,6 +33,6 @@ WeatherModel recentWeather = WeatherModel(
   datetime: "12日(月)",
   highestTemperature: 30,
   lowestTemperature: 20,
-  rainyPercent: [30, 30, 30, 30],
+  rainyPercent: ["30", "20", "0", "30"],
   updateDate: "2020/10/11 13:30更新",
 );
