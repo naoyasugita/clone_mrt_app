@@ -61,9 +61,17 @@ class _WeatherContent extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Text(
               recentWeather.locationName,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Text(
               recentWeather.updateDate,
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.grey,
+              ),
             ),
           ]),
         ],
