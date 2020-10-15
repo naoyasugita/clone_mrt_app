@@ -136,7 +136,6 @@ class WeatherContentDetail extends StatelessWidget {
           ],
         ),
         Row(
-          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             rainyPercentText(recentWeather.rainyPercent[0]),
             rainyPercentText(recentWeather.rainyPercent[1]),
@@ -191,7 +190,7 @@ class WeatherContentIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: EdgeInsets.only(top: 10),
       child: Image.asset(
         recentWeather.weatherIconPath,
         fit: BoxFit.cover,
