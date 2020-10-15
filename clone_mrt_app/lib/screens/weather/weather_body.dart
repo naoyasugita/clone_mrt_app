@@ -114,60 +114,88 @@ class WeatherContentDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              recentWeather.highestTemperature.toString(),
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.red[400],
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 8),
+          child: Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  recentWeather.highestTemperature.toString(),
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.red[400],
+                  ),
+                ),
               ),
-            ),
-            Text(
-              recentWeather.lowestTemperature.toString(),
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.blue,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  recentWeather.lowestTemperature.toString(),
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.blue,
+                  ),
+                ),
               ),
-            ),
-            Text("℃"),
-          ],
+              Padding(
+                padding: EdgeInsets.only(left: 5),
+                child: Text(
+                  "℃",
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
         Row(
           children: [
-            rainyPercentText(recentWeather.rainyPercent[0]),
-            rainyPercentText(recentWeather.rainyPercent[1]),
-            rainyPercentText(recentWeather.rainyPercent[2]),
-            rainyPercentText(recentWeather.rainyPercent[3]),
-            Text("％"),
+            _rainyPercentText(recentWeather.rainyPercent[0]),
+            _rainyPercentText(recentWeather.rainyPercent[1]),
+            _rainyPercentText(recentWeather.rainyPercent[2]),
+            _rainyPercentText(recentWeather.rainyPercent[3]),
+            Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                "%",
+                style: TextStyle(
+                  fontSize: 10,
+                ),
+              ),
+            ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            smallGrayText("0"),
-            smallGrayText("-"),
-            smallGrayText("6"),
-            smallGrayText("-"),
-            smallGrayText("12"),
-            smallGrayText("-"),
-            smallGrayText("18"),
-            smallGrayText("-"),
-            smallGrayText("24"),
-          ],
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 4),
+          child: Row(
+            children: [
+              _smallGrayText("0"),
+              _smallGrayText("-"),
+              _smallGrayText("6"),
+              _smallGrayText("-"),
+              _smallGrayText("12"),
+              _smallGrayText("-"),
+              _smallGrayText("18"),
+              _smallGrayText("-"),
+              _smallGrayText("24"),
+              _smallGrayText(""),
+            ],
+          ),
         ),
       ],
     );
   }
 
-  Widget rainyPercentText(String rainyPercent) => Padding(
+  Widget _rainyPercentText(String rainyPercent) => Padding(
         padding: EdgeInsets.symmetric(horizontal: 8),
         child: Text(rainyPercent),
       );
 
-  Widget smallGrayText(String word) => Padding(
+  Widget _smallGrayText(String word) => Padding(
         padding: EdgeInsets.symmetric(horizontal: 4),
         child: Text(
           word,
@@ -189,13 +217,10 @@ class WeatherContentIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 10),
-      child: Image.asset(
-        recentWeather.weatherIconPath,
-        fit: BoxFit.cover,
-        width: 40,
-      ),
+    return Image.asset(
+      recentWeather.weatherIconPath,
+      fit: BoxFit.cover,
+      width: 40,
     );
   }
 }
@@ -214,7 +239,7 @@ class WeatherContentDateInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: 10, left: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20),
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
