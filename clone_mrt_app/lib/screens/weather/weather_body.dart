@@ -45,6 +45,15 @@ class WeaklyWeather extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  _checkWeekend(String datetime) {
+    if (datetime.contains("土")) {
+      return Colors.blue;
+    } else if (datetime.contains("(日)")) {
+      return Colors.red[400];
+    }
+    return;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -131,8 +140,6 @@ class WeaklyWeather extends StatelessWidget {
                 ),
               ),
             ),
-            // WeatherContentHeader(recentWeather: recentWeather),
-            // WeatherContentBody(recentWeather: recentWeather),
           ),
         ],
       ),
@@ -150,15 +157,6 @@ class WeaklyWeather extends StatelessWidget {
       ),
     );
   }
-}
-
-_checkWeekend(String datetime) {
-  if (datetime.contains("土")) {
-    return Colors.blue;
-  } else if (datetime.contains("(日)")) {
-    return Colors.red[400];
-  }
-  return;
 }
 
 class WeatherView extends StatelessWidget {
