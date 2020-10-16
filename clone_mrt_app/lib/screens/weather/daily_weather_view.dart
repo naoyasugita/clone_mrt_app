@@ -124,22 +124,19 @@ class WeatherContentDetail extends StatelessWidget {
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 4),
-          child: Row(
-            children: [
-              _smallGrayText("0"),
-              _smallGrayText("-"),
-              _smallGrayText("6"),
-              _smallGrayText("-"),
-              _smallGrayText("12"),
-              _smallGrayText("-"),
-              _smallGrayText("18"),
-              _smallGrayText("-"),
-              _smallGrayText("24"),
-              _smallGrayText(""),
-            ],
-          ),
+        Row(
+          children: [
+            _smallGrayText("0"),
+            _smallGrayText("-"),
+            _smallGrayText("6"),
+            _smallGrayText("-"),
+            _smallGrayText("12"),
+            _smallGrayText("-"),
+            _smallGrayText("18"),
+            _smallGrayText("-"),
+            _smallGrayText("24"),
+            _smallGrayText(""),
+          ],
         ),
       ],
     );
