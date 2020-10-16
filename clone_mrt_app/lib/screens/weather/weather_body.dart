@@ -28,7 +28,26 @@ List<Widget> _tiles = <Widget>[
   ),
   Padding(
     padding: EdgeInsets.all(4),
-    child: Container(
+    child: WeaklyWeather(),
+  ),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+];
+
+class WeaklyWeather extends StatelessWidget {
+  const WeaklyWeather({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       padding: EdgeInsets.all(8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,17 +148,9 @@ List<Widget> _tiles = <Widget>[
           )
         ],
       ),
-    ),
-  ),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-];
+    );
+  }
+}
 
 _checkWeekend(String datetime) {
   if (datetime.contains("土")) {
