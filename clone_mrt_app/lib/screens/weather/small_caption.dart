@@ -9,41 +9,46 @@ class SmallCaption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // TODO: 動的にサイズを調整できるようにする
-      child: Column(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(kBorderRadius),
+    return GestureDetector(
+      onTap: () {
+        print("small caption is pressed");
+      },
+      child: Container(
+        // TODO: 動的にサイズを調整できるようにする
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(kBorderRadius),
+              ),
+              child: Image.asset(
+                weatherCattion.imagePath,
+                fit: BoxFit.fitWidth,
+                height: 114,
+                width: 500,
+              ),
             ),
-            child: Image.asset(
-              weatherCattion.imagePath,
-              fit: BoxFit.fitWidth,
-              height: 114,
-              width: 500,
+            Text(
+              weatherCattion.subject,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          Text(
-            weatherCattion.subject,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            offset: new Offset(0, 5.0),
-            blurRadius: 5.0,
-          )
-        ],
+          ],
+        ),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: new Offset(0, 5.0),
+              blurRadius: 5.0,
+            )
+          ],
+        ),
       ),
     );
   }
