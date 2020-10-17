@@ -1,4 +1,3 @@
-import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/screens/weather/daily_weather_view.dart';
 import 'package:clone_mrt_app/screens/weather/large_caption.dart';
