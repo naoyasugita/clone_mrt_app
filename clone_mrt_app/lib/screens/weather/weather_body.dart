@@ -6,6 +6,20 @@ import 'package:clone_mrt_app/screens/weather/weakli_weather_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+class WeatherView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StaggeredGridView.count(
+      padding: EdgeInsets.all(4),
+      crossAxisCount: 2,
+      staggeredTiles: _staggeredTiles,
+      children: _tiles,
+      mainAxisSpacing: 2,
+      crossAxisSpacing: 2,
+    );
+  }
+}
+
 const largeCard = StaggeredTile.count(2, 1);
 const middleCard = StaggeredTile.count(2, 0.7);
 const smallCard = StaggeredTile.count(1, 0.7);
@@ -23,6 +37,7 @@ List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
 ];
 
 List<Widget> _tiles = <Widget>[
+  // TODO: データを引数から渡せるようにする
   Padding(
     padding: EdgeInsets.all(4),
     child: WeatherContent(recentWeather),
@@ -60,17 +75,3 @@ List<Widget> _tiles = <Widget>[
     child: SmallCaption(),
   ),
 ];
-
-class WeatherView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return StaggeredGridView.count(
-      padding: EdgeInsets.all(4),
-      crossAxisCount: 2,
-      staggeredTiles: _staggeredTiles,
-      children: _tiles,
-      mainAxisSpacing: 2,
-      crossAxisSpacing: 2,
-    );
-  }
-}
