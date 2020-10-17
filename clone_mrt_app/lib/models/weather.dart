@@ -93,3 +93,18 @@ WeatherModel recentWeather = WeatherModel(
   rainyPercent: ["30", "20", "0", "30"],
   updateDate: "2020/10/11 13:30更新",
 );
+
+class WeatherCaption {
+  final String subject;
+  final String imagePath;
+
+  WeatherCaption({
+    this.subject,
+    this.imagePath,
+  });
+}
+
+WeatherCaption weatherCattion = WeatherCaption(
+  subject: "時系列予報",
+  imagePath: "assets/weather_caption.png",
+);
