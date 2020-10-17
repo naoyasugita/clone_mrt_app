@@ -1,6 +1,7 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/screens/weather/daily_weather_view.dart';
+import 'package:clone_mrt_app/screens/weather/small_caption.dart';
 import 'package:clone_mrt_app/screens/weather/weakli_weather_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -13,8 +14,8 @@ List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   middleCard,
   middleCard,
   smallCard,
-  // smallCard,
-  // largeCard,
+  smallCard,
+  largeCard,
   // largeCard,
   // smallCard,
   // smallCard,
@@ -33,7 +34,34 @@ List<Widget> _tiles = <Widget>[
   ),
   Padding(
     padding: EdgeInsets.all(4),
-    child: Container(
+    child: SmallCaption(),
+  ),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: SmallCaption(),
+  ),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: LargeCaption(),
+  ),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+  // WeatherContent(recentWeather),
+];
+
+class LargeCaption extends StatelessWidget {
+  const LargeCaption({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       // TODO: 動的にサイズを調整できるようにする
       child: Column(
         children: [
@@ -44,7 +72,7 @@ List<Widget> _tiles = <Widget>[
             child: Image.asset(
               weatherCattion.imagePath,
               fit: BoxFit.fitWidth,
-              height: 114,
+              height: 174,
               width: 500,
             ),
           ),
@@ -69,17 +97,9 @@ List<Widget> _tiles = <Widget>[
           )
         ],
       ),
-    ),
-  ),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-];
+    );
+  }
+}
 
 class WeatherView extends StatelessWidget {
   @override
