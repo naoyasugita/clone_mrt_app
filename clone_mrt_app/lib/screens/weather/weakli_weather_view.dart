@@ -24,7 +24,7 @@ class WeaklyWeather extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "週間天気",
+            "週間予報",
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
