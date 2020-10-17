@@ -4,6 +4,7 @@ import 'package:clone_mrt_app/screens/live_camera/live_camera_body.dart';
 import 'package:clone_mrt_app/screens/news/news_body.dart';
 import 'package:clone_mrt_app/screens/uchinoko/uchinoko_body.dart';
 import 'package:clone_mrt_app/screens/usage/usage_body.dart';
+import 'package:clone_mrt_app/screens/weather/weather_body.dart';
 import 'package:flutter/material.dart';
 
 class MyAppHome extends StatelessWidget {
@@ -86,7 +87,7 @@ class Body extends StatelessWidget {
     return TabBarView(
       children: [
         NewsListView(),
-        myContainer("a"),
+        WeatherView(),
         myContainer("a"),
         myContainer("a"),
         myContainer("a"),
