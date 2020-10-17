@@ -27,7 +27,7 @@ class WeatherModel {
   });
 }
 
-List<WeatherModel> weaklyWeatherList = [
+List<WeatherModel> weeklyForecastList = [
   WeatherModel(
     locationName: "宮崎",
     weatherIconPath: kWeatherSunny,

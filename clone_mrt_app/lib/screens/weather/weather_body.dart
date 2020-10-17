@@ -2,7 +2,7 @@ import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/screens/weather/daily_weather_view.dart';
 import 'package:clone_mrt_app/screens/weather/large_caption.dart';
 import 'package:clone_mrt_app/screens/weather/small_caption.dart';
-import 'package:clone_mrt_app/screens/weather/weakli_weather_view.dart';
+import 'package:clone_mrt_app/screens/weather/weekly_forecast_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -44,7 +44,7 @@ List<Widget> _tiles = <Widget>[
   ),
   Padding(
     padding: EdgeInsets.all(4),
-    child: WeaklyWeather(),
+    child: WeeklyForecast(),
   ),
   Padding(
     padding: EdgeInsets.all(4),

@@ -2,8 +2,8 @@ import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/constants.dart';
 import 'package:flutter/material.dart';
 
-class WeaklyWeather extends StatelessWidget {
-  const WeaklyWeather({
+class WeeklyForecast extends StatelessWidget {
+  const WeeklyForecast({
     Key key,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class WeaklyWeather extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
-                weaklyWeatherList.length,
+                weeklyForecastList.length,
                 (index) => Container(
                   padding: EdgeInsets.symmetric(horizontal: 4),
                   child: Column(
@@ -47,11 +47,11 @@ class WeaklyWeather extends StatelessWidget {
                           bottom: 4,
                         ),
                         child: Text(
-                          weaklyWeatherList[index].datetime,
+                          weeklyForecastList[index].datetime,
                           style: TextStyle(
                             fontSize: 10,
                             color: _checkWeekend(
-                              weaklyWeatherList[index].datetime,
+                              weeklyForecastList[index].datetime,
                             ),
                           ),
                         ),
@@ -61,7 +61,7 @@ class WeaklyWeather extends StatelessWidget {
                           bottom: 4,
                         ),
                         child: Image.asset(
-                          weaklyWeatherList[index].weatherIconPath,
+                          weeklyForecastList[index].weatherIconPath,
                           width: 24,
                         ),
                       ),
@@ -70,7 +70,7 @@ class WeaklyWeather extends StatelessWidget {
                           bottom: 4,
                         ),
                         child: Text(
-                          weaklyWeatherList[index]
+                          weeklyForecastList[index]
                               .highestTemperature
                               .toString(),
                           style: TextStyle(
@@ -84,7 +84,9 @@ class WeaklyWeather extends StatelessWidget {
                           bottom: 4,
                         ),
                         child: Text(
-                          weaklyWeatherList[index].lowestTemperature.toString(),
+                          weeklyForecastList[index]
+                              .lowestTemperature
+                              .toString(),
                           style: TextStyle(
                             fontSize: 10,
                             color: Colors.blue,
@@ -92,7 +94,7 @@ class WeaklyWeather extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        weaklyWeatherList[index].rainyPercent[0] + "%",
+                        weeklyForecastList[index].rainyPercent[0] + "%",
                         style: TextStyle(
                           fontSize: 10,
                         ),
