@@ -17,11 +17,10 @@ List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   smallCard,
   smallCard,
   largeCard,
-  // largeCard,
-  // smallCard,
-  // smallCard,
-  // smallCard,
-  // smallCard,
+  largeCard,
+  smallCard,
+  smallCard,
+  smallCard,
 ];
 
 List<Widget> _tiles = <Widget>[
@@ -45,14 +44,22 @@ List<Widget> _tiles = <Widget>[
     padding: EdgeInsets.all(4),
     child: LargeCaption(),
   ),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
-  // WeatherContent(recentWeather),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: LargeCaption(),
+  ),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: SmallCaption(),
+  ),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: SmallCaption(),
+  ),
+  Padding(
+    padding: EdgeInsets.all(4),
+    child: SmallCaption(),
+  ),
 ];
 
 class WeatherView extends StatelessWidget {

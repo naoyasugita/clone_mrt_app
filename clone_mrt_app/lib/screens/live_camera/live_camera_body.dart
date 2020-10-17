@@ -48,7 +48,7 @@ class LiveCameraView extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
-              offset: new Offset(0, 5.0),
+              offset: Offset(0, 5.0),
               blurRadius: 5.0,
             )
           ],
