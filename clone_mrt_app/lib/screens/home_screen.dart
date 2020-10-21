@@ -188,7 +188,7 @@ class BreakingNewsContents extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(5),
             child: Icon(
-              breakingNewsList[this.index].categpry.toIcon(),
+              breakingNewsList[index].categpry.toIcon(),
               size: 50,
             ),
           ),
