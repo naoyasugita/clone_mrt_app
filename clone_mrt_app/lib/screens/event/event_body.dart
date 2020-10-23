@@ -30,6 +30,7 @@ class EventListView extends StatelessWidget {
             alignment: Alignment.center,
             child: Column(
               children: [
+                // TODO: データ構造の見直しと複数イベントの表示に対応
                 CategoryHeader(index: index),
                 EventContent(index: index),
               ],
