@@ -91,7 +91,7 @@ class EventContent extends StatelessWidget {
         _launchURL(eventModelList[index].siteUrl);
       },
       child: Container(
-        alignment: Alignment.center,
+        alignment: Alignment.centerLeft,
         margin: EdgeInsets.only(bottom: 10, right: 10, left: 10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(kBorderRadius),
