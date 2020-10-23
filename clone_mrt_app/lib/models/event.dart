@@ -75,7 +75,6 @@ class EventCategory {
 
 class EventModel {
   final String title;
-  // final String category;
   final String siteUrl;
   final EventCategory category;
 
