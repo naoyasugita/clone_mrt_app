@@ -99,106 +99,12 @@ class Body extends StatelessWidget {
         myContainer("a"),
         UchinokoListView(),
         myContainer("a"),
-        ListView.builder(
-          itemCount: eventModelList.length,
-          // padding: EdgeInsets.all(kDefaultPadding),
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            // return GestureDetector(
-            //   onTap: () {
-            //     _launchURL(eventModelList[index].siteUrl);
-            //   },
-            // child:
-            return Container(
-              margin: EdgeInsets.only(top: 10, right: 10, left: 10),
-              // alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-                color: Colors.red,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(0, 5.0),
-                    blurRadius: 5.0,
-                  )
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          child: Icon(Icons.music_note),
-                          width: 40,
-                          height: 40,
-                        ),
-                        Text(
-                          "音楽",
-                          style: TextStyle(
-                            fontSize: 15,
-                          ),
-                        ),
-                      ],
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        _launchURL(eventModelList[index].siteUrl);
-                      },
-                      child: Container(
-                        alignment: Alignment.center,
-                        margin:
-                            EdgeInsets.only(bottom: 10, right: 10, left: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(kBorderRadius),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              offset: Offset(0, 3.0),
-                              blurRadius: 5.0,
-                            )
-                          ],
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(5),
-                          child: Text(
-                            eventModelList[index].title,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              // ),
-            );
-          },
-        ),
+        EventListView(),
         myContainer("a"),
         LiveCameraListView(),
         UsageListView(),
       ],
     );
-  }
-
-  _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: true,
-        forceWebView: true,
-      );
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }
 
