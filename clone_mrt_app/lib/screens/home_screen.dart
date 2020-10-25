@@ -16,6 +16,7 @@ class MyAppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.orange[50],
       body: SafeArea(
         child: DefaultTabController(
           length: tabs.length,
