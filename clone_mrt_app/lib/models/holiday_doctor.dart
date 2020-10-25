@@ -79,54 +79,9 @@ class ExaminationTime {
   }
 }
 
-HospitalInfoModel hospitalInfo = HospitalInfoModel(
-  hospitalName: "〇〇病院",
-  datetime: "2020/10/10(火)",
-  cityName: "宮崎市",
-  address: "宮崎市〇〇1-1-1",
-  telephone: "0000-00-0000",
-  category: "",
-  examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
-  infoSource: "宮崎県医師会・宮崎県歯科医師会",
-  hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
-);
-
-List<HospitalInfoModel> hospitalInfoList = [
+List<HospitalInfoModel> internalMedicine = [
   HospitalInfoModel(
-    hospitalName: "〇〇病院",
-    datetime: "2020/10/10(火)",
-    cityName: "宮崎市",
-    address: "宮崎市〇〇1-1-1",
-    telephone: "0000-00-0000",
-    category: "",
-    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
-    infoSource: "宮崎県医師会・宮崎県歯科医師会",
-    hospitalType: HospitalTypeModel(HospitalType.Dentistry),
-  ),
-  HospitalInfoModel(
-    hospitalName: "〇〇病院",
-    datetime: "2020/10/10(火)",
-    cityName: "宮崎市",
-    address: "宮崎市〇〇1-1-1",
-    telephone: "0000-00-0000",
-    category: "",
-    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
-    infoSource: "宮崎県医師会・宮崎県歯科医師会",
-    hospitalType: HospitalTypeModel(HospitalType.Dermatology),
-  ),
-  HospitalInfoModel(
-    hospitalName: "〇〇病院",
-    datetime: "2020/10/10(火)",
-    cityName: "宮崎市",
-    address: "宮崎市〇〇1-1-1",
-    telephone: "0000-00-0000",
-    category: "",
-    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
-    infoSource: "宮崎県医師会・宮崎県歯科医師会",
-    hospitalType: HospitalTypeModel(HospitalType.Emergency),
-  ),
-  HospitalInfoModel(
-    hospitalName: "〇〇病院",
+    hospitalName: "A病院",
     datetime: "2020/10/10(火)",
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
@@ -135,5 +90,78 @@ List<HospitalInfoModel> hospitalInfoList = [
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+  ),
+  HospitalInfoModel(
+    hospitalName: "B病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+  ),
+];
+
+List<HospitalInfoModel> surgery = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Surgery),
+  ),
+  HospitalInfoModel(
+    hospitalName: "B病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Surgery),
+  ),
+];
+
+List<HospitalInfoModel> pediatrics = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Pediatrics),
+  ),
+];
+
+class HospitalInfoModelList {
+  final List<HospitalInfoModel> hospitalList;
+  final HospitalTypeModel hospitalType;
+  bool isExpanded = false;
+
+  HospitalInfoModelList({this.hospitalType, this.hospitalList});
+}
+
+List<HospitalInfoModelList> hospitalList = [
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+    hospitalList: internalMedicine,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+    hospitalList: surgery,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Pediatrics),
+    hospitalList: pediatrics,
   ),
 ];
