@@ -86,7 +86,7 @@ List<HospitalInfoModel> internalMedicine = [
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
     telephone: "0000-00-0000",
-    category: "",
+    category: "内科",
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
@@ -97,7 +97,29 @@ List<HospitalInfoModel> internalMedicine = [
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
     telephone: "0000-00-0000",
-    category: "",
+    category: "内科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+  ),
+  HospitalInfoModel(
+    hospitalName: "C病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "内科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+  ),
+  HospitalInfoModel(
+    hospitalName: "D病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "内科",
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
@@ -111,7 +133,7 @@ List<HospitalInfoModel> surgery = [
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
     telephone: "0000-00-0000",
-    category: "",
+    category: "外科",
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.Surgery),
@@ -122,7 +144,7 @@ List<HospitalInfoModel> surgery = [
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
     telephone: "0000-00-0000",
-    category: "",
+    category: "外科",
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.Surgery),
@@ -136,10 +158,94 @@ List<HospitalInfoModel> pediatrics = [
     cityName: "宮崎市",
     address: "宮崎市〇〇1-1-1",
     telephone: "0000-00-0000",
-    category: "",
+    category: "小児科",
     examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
     infoSource: "宮崎県医師会・宮崎県歯科医師会",
     hospitalType: HospitalTypeModel(HospitalType.Pediatrics),
+  ),
+];
+
+List<HospitalInfoModel> obstetricsAndGynecology = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "産婦人科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.ObstetricsAndGynecology),
+  ),
+];
+
+List<HospitalInfoModel> dermatology = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "皮膚科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Dermatology),
+  ),
+];
+
+List<HospitalInfoModel> ophthalmology = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "眼科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Ophthalmology),
+  ),
+];
+
+List<HospitalInfoModel> otorhinolaryngology = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "耳鼻いんこう科",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Otorhinolaryngology),
+  ),
+];
+
+List<HospitalInfoModel> dentistry = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "歯科系",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Dentistry),
+  ),
+];
+
+List<HospitalInfoModel> emergency = [
+  HospitalInfoModel(
+    hospitalName: "A病院",
+    datetime: "2020/10/10(火)",
+    cityName: "宮崎市",
+    address: "宮崎市〇〇1-1-1",
+    telephone: "0000-00-0000",
+    category: "休日夜間急患センター",
+    examinationTime: ExaminationTime(since: "9:00", until: "17:00"),
+    infoSource: "宮崎県医師会・宮崎県歯科医師会",
+    hospitalType: HospitalTypeModel(HospitalType.Emergency),
   ),
 ];
 
@@ -157,11 +263,35 @@ List<HospitalInfoModelList> hospitalList = [
     hospitalList: internalMedicine,
   ),
   HospitalInfoModelList(
-    hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
+    hospitalType: HospitalTypeModel(HospitalType.Surgery),
     hospitalList: surgery,
   ),
   HospitalInfoModelList(
     hospitalType: HospitalTypeModel(HospitalType.Pediatrics),
     hospitalList: pediatrics,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.ObstetricsAndGynecology),
+    hospitalList: obstetricsAndGynecology,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Dermatology),
+    hospitalList: dermatology,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Ophthalmology),
+    hospitalList: ophthalmology,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Otorhinolaryngology),
+    hospitalList: otorhinolaryngology,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Dentistry),
+    hospitalList: dentistry,
+  ),
+  HospitalInfoModelList(
+    hospitalType: HospitalTypeModel(HospitalType.Emergency),
+    hospitalList: emergency,
   ),
 ];
