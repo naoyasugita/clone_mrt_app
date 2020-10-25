@@ -103,29 +103,6 @@ class Body extends StatelessWidget {
         myContainer("a"),
         EventListView(),
         ExpandableItemExample(),
-        // ListView.builder(
-        //   itemCount: hospitalList.length,
-        //   itemBuilder: (context, index) {
-        //     return Container(
-        //       margin: EdgeInsets.only(top: 10, right: 10, left: 10),
-        //       decoration: BoxDecoration(
-        //         borderRadius: BorderRadius.circular(kBorderRadius),
-        //         color: Colors.purple[100],
-        //         boxShadow: [
-        //           BoxShadow(
-        //             color: Colors.grey,
-        //             offset: Offset(0, 5.0),
-        //             blurRadius: 5.0,
-        //           )
-        //         ],
-        //       ),
-        //       child: Container(
-        //         alignment: Alignment.center,
-        //         child: MyStatefulWidget(index: index),
-        //       ),
-        //     );
-        //   },
-        // ),
         LiveCameraListView(),
         UsageListView(),
       ],
@@ -156,49 +133,71 @@ class ExpandableItemExample extends StatelessWidget {
             )
           ],
         ),
-        child: ExpansionTile(
-          backgroundColor: Colors.purple[100],
-          title: Text(_hospitalList[index].hospitalType.toJapanese()),
-          leading: Icon(Icons.add_box),
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(
-                right: 10,
-                bottom: 10,
-                left: 10,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(kBorderRadius),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(0, 5.0),
-                    blurRadius: 5.0,
-                  )
-                ],
-              ),
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(_hospitalList[index].hospitalList[0].datetime),
-                    Text(
-                      _hospitalList[index].hospitalList[0].hospitalName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
+        child: HospitalInfoView(hospitalList: _hospitalList, index: index),
+      ),
+      itemCount: _hospitalList.length,
+    );
+  }
+}
+
+class HospitalInfoView extends StatelessWidget {
+  final index;
+
+  const HospitalInfoView({
+    Key key,
+    this.index,
+    @required List<HospitalInfoModelList> hospitalList,
+  })  : _hospitalList = hospitalList,
+        super(key: key);
+
+  final List<HospitalInfoModelList> _hospitalList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      backgroundColor: Colors.purple[100],
+      title: Text(_hospitalList[index].hospitalType.toJapanese()),
+      leading: Icon(Icons.add_box),
+      children: buildList(index).toList(),
+    );
+  }
+
+  List<Container> buildList(int index) {
+    return List.generate(
+      _hospitalList[index].hospitalList.length,
+      (_index) => Container(
+        padding: EdgeInsets.all(10),
+        alignment: Alignment.centerLeft,
+        margin: EdgeInsets.only(
+          right: 10,
+          bottom: 10,
+          left: 10,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(0, 5.0),
+              blurRadius: 5.0,
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(_hospitalList[index].hospitalList[_index].datetime +
+                _hospitalList[index].hospitalList[_index].cityName),
+            Text(
+              _hospitalList[index].hospitalList[_index].hospitalName,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
-      itemCount: _hospitalList.length,
     );
   }
 }
