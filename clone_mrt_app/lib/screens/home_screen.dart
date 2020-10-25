@@ -1,6 +1,7 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/event.dart';
 import 'package:clone_mrt_app/models/header_tab.dart';
+import 'package:clone_mrt_app/models/holiday_doctor.dart';
 import 'package:clone_mrt_app/screens/event/event_body.dart';
 import 'package:clone_mrt_app/screens/live_camera/live_camera_body.dart';
 import 'package:clone_mrt_app/screens/news/news_body.dart';
@@ -101,11 +102,103 @@ class Body extends StatelessWidget {
         UchinokoListView(),
         myContainer("a"),
         EventListView(),
-        // myContainer("a"),
-        myContainer("a"),
+        ExpandableItemExample(),
+        // ListView.builder(
+        //   itemCount: hospitalList.length,
+        //   itemBuilder: (context, index) {
+        //     return Container(
+        //       margin: EdgeInsets.only(top: 10, right: 10, left: 10),
+        //       decoration: BoxDecoration(
+        //         borderRadius: BorderRadius.circular(kBorderRadius),
+        //         color: Colors.purple[100],
+        //         boxShadow: [
+        //           BoxShadow(
+        //             color: Colors.grey,
+        //             offset: Offset(0, 5.0),
+        //             blurRadius: 5.0,
+        //           )
+        //         ],
+        //       ),
+        //       child: Container(
+        //         alignment: Alignment.center,
+        //         child: MyStatefulWidget(index: index),
+        //       ),
+        //     );
+        //   },
+        // ),
         LiveCameraListView(),
         UsageListView(),
       ],
+    );
+  }
+}
+
+class ExpandableItemExample extends StatelessWidget {
+  final List<HospitalInfoModelList> _hospitalList = hospitalList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) => Container(
+        margin: EdgeInsets.only(
+          right: 5,
+          bottom: 5,
+          left: 5,
+        ),
+        decoration: BoxDecoration(
+          color: Colors.purple[100],
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(0, 5.0),
+              blurRadius: 5.0,
+            )
+          ],
+        ),
+        child: ExpansionTile(
+          backgroundColor: Colors.purple[100],
+          title: Text(_hospitalList[index].hospitalType.toJapanese()),
+          leading: Icon(Icons.add_box),
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(10),
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(
+                right: 10,
+                bottom: 10,
+                left: 10,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(kBorderRadius),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(0, 5.0),
+                    blurRadius: 5.0,
+                  )
+                ],
+              ),
+              child: Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(_hospitalList[index].hospitalList[0].datetime),
+                    Text(
+                      _hospitalList[index].hospitalList[0].hospitalName,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      itemCount: _hospitalList.length,
     );
   }
 }
