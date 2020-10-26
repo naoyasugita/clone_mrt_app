@@ -1,8 +1,9 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/header_tab.dart';
+import 'package:clone_mrt_app/screens/broadcast/broadcast_body.dart';
 import 'package:clone_mrt_app/screens/event/event_body.dart';
-import 'package:clone_mrt_app/screens/holiday_doctor.dart/holiday_doctor_body.dart';
 import 'package:clone_mrt_app/screens/breaking_news/breaking_news_body.dart';
+import 'package:clone_mrt_app/screens/holiday_doctor/holiday_doctor_body.dart';
 import 'package:clone_mrt_app/screens/live_camera/live_camera_body.dart';
 import 'package:clone_mrt_app/screens/news/news_body.dart';
 import 'package:clone_mrt_app/screens/uchinoko/uchinoko_body.dart';
@@ -10,13 +11,14 @@ import 'package:clone_mrt_app/screens/usage/usage_body.dart';
 import 'package:clone_mrt_app/screens/weather/weather_body.dart';
 import 'package:flutter/material.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 class MyAppHome extends StatelessWidget {
   const MyAppHome();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orange[50],
       body: SafeArea(
         child: DefaultTabController(
           length: tabs.length,
@@ -100,7 +102,7 @@ class Body extends StatelessWidget {
         myContainer("a"),
         myContainer("a"),
         UchinokoListView(),
-        myContainer("a"),
+        BroadcastView(),
         EventListView(),
         HospitalListView(),
         LiveCameraListView(),
