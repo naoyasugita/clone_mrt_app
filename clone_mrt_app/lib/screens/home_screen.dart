@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/header_tab.dart';
+import 'package:clone_mrt_app/models/shop_introduction.dart';
 import 'package:clone_mrt_app/screens/broadcast/broadcast_body.dart';
 import 'package:clone_mrt_app/screens/event/event_body.dart';
 import 'package:clone_mrt_app/screens/breaking_news/breaking_news_body.dart';
@@ -100,7 +101,45 @@ class Body extends StatelessWidget {
         myContainer("a"),
         myContainer("a"),
         myContainer("a"),
-        myContainer("a"),
+        Container(
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                  top: 10,
+                  right: 10,
+                  left: 10,
+                ),
+                padding: EdgeInsets.all(10),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.orange,
+                    width: 5,
+                  ),
+                  borderRadius: BorderRadius.circular(kBorderRadius),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0, 5.0),
+                      blurRadius: 5.0,
+                    )
+                  ],
+                ),
+                child: Text(
+                  "テレビ・ラジオで放送したお店などをご紹介。\nあなたが気になるお店をチェック！",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              ShopIntroduction(),
+            ],
+          ),
+        ),
+        // ShopIntroduction(),
         UchinokoListView(),
         BroadcastView(),
         EventListView(),
@@ -108,6 +147,96 @@ class Body extends StatelessWidget {
         LiveCameraListView(),
         UsageListView(),
       ],
+    );
+  }
+}
+
+class ShopIntroduction extends StatelessWidget {
+  const ShopIntroduction({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: shopIntroductionList.length,
+      padding: EdgeInsets.all(kDefaultPadding),
+      shrinkWrap: true,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+        childAspectRatio: 0.8,
+      ),
+      itemBuilder: (context, index) {
+        return Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(kBorderRadius),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(0, 5.0),
+                blurRadius: 5.0,
+              )
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(kBorderRadius),
+                ),
+                child: Image.asset(
+                  shopIntroductionList[index].imagePath,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(kDefaultPadding),
+                child: Text(
+                  shopIntroductionList[index].shopName,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Text(
+                  shopIntroductionList[index].address,
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Text(
+                  shopIntroductionList[index].source.toString(),
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Text(
+                  shopIntroductionList[index].shopType.toJapanese(),
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
