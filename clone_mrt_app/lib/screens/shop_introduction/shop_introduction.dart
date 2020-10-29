@@ -87,7 +87,7 @@ class GourmetOrShopInfo extends StatelessWidget {
     if (s == "shop") {
       return "assets/dummy_shop_info.png";
     }
-    return "assets/dummy_shop_info.png";
+    return "assets/dummy_gourme_info.png";
   }
 }
 
