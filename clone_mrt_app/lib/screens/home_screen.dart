@@ -181,9 +181,10 @@ class Body extends StatelessWidget {
                             children: [
                               Image.asset(
                                 radioProgramList[index].imagePath,
-                                width: 130,
+                                width: MediaQuery.of(context).size.width * 0.3,
                               ),
                               Container(
+                                width: MediaQuery.of(context).size.width * 0.6,
                                 padding: EdgeInsets.all(10),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,7 +209,7 @@ class Body extends StatelessWidget {
                                     ),
                                     Text(
                                       radioProgramList[index].personality,
-                                      maxLines: 3,
+                                      maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 12,
