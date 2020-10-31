@@ -37,3 +37,12 @@ flutter:
     - assets/weather/sunny.png
     - assets/weather/cloudy.png
     - assets/weather/rainy.png
+    - assets/apply_post/dummy_apply_scoop.png
+    - assets/apply_post/dummy_apply_special.png
+    - assets/apply_post/dummy_apply_campaign.png
+    - assets/apply_post/dummy_apply_tv.png
+    - assets/apply_post/dummy_apply_radio.png
+    - assets/apply_post/dummy_apply_wakemon.png
+    - assets/apply_post/dummy_apply_asatoku.png
+    - assets/apply_post/dummy_apply_next.png
+    - assets/apply_post/dummy_apply_uchinoko.png
