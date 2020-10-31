@@ -35,6 +35,7 @@ flutter:
     - assets/dummy_gourme_info.png
     - assets/weather_caption.png
     - assets/usage.png
+    - assets/tv_top.png
     - assets/weather/sunny.png
     - assets/weather/cloudy.png
     - assets/weather/rainy.png

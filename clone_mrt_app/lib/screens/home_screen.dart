@@ -10,6 +10,7 @@ import 'package:clone_mrt_app/screens/news/news_body.dart';
 import 'package:clone_mrt_app/screens/overcome/overcome_body.dart';
 import 'package:clone_mrt_app/screens/present/present_body.dart';
 import 'package:clone_mrt_app/screens/shop_introduction/shop_introduction.dart';
+import 'package:clone_mrt_app/screens/tv/tv_body.dart';
 import 'package:clone_mrt_app/screens/uchinoko/uchinoko_body.dart';
 import 'package:clone_mrt_app/screens/usage/usage_body.dart';
 import 'package:clone_mrt_app/screens/weather/weather_body.dart';
@@ -101,7 +102,7 @@ class Body extends StatelessWidget {
         PresentView(),
         ApplyPostView(),
         OvercomeView(),
-        myContainer("a"),
+        TVView(),
         myContainer("a"),
         ShopIntroductionView(),
         UchinokoListView(),
