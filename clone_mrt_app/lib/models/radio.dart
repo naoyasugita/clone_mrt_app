@@ -55,14 +55,14 @@ List<RadioProgramModel> radioProgramList = [
     imagePath: "assets/dummy_broadcast.png",
     url: "https://mrt.jp/special/coronavirus",
     startDate: "月曜〜金曜 あさ7:35〜",
-    personality: "アンクル・マイク",
+    personality: "パーソナリティ：アンクル・マイク",
   ),
   RadioProgramModel(
     title: "MRTラジオ 歌のない歌謡曲",
     imagePath: "assets/dummy_broadcast.png",
     url: "https://mrt.jp/special/coronavirus",
     startDate: "月曜〜金曜 あさ7:35〜",
-    personality: "宮本佳奈",
+    personality: "パーソナリティ：宮本佳奈",
   ),
   RadioProgramModel(
     title: "フレッシュAM もぎたてラジオ",
@@ -76,7 +76,7 @@ List<RadioProgramModel> radioProgramList = [
     imagePath: "assets/dummy_broadcast.png",
     url: "https://mrt.jp/special/coronavirus",
     startDate: "月曜〜金曜 お昼12:00〜",
-    personality: "MRTアナウンサーズ",
+    personality: "パーソナリティ：MRTアナウンサーズ",
   ),
   RadioProgramModel(
     title: "GO!GO!ワイド",
@@ -90,6 +90,6 @@ List<RadioProgramModel> radioProgramList = [
     imagePath: "assets/dummy_broadcast.png",
     url: "https://mrt.jp/special/coronavirus",
     startDate: "月曜〜金曜 夕方4:50〜",
-    personality: "外種子田結",
+    personality: "読み手：外種子田結",
   ),
 ];
