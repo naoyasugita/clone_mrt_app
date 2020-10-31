@@ -95,6 +95,33 @@ List<PresentModel> presentModelList = [
     formTitle: "テスト",
     thumbnailImagePath: thumbnailImagePath,
   ),
+  PresentModel(
+    content: PresentContentsModel(
+        name: "商品券 1万円分",
+        applyTerm: term,
+        winner: Winner(2),
+        description: description),
+    formTitle: "テスト",
+    thumbnailImagePath: thumbnailImagePath,
+  ),
+  PresentModel(
+    content: PresentContentsModel(
+        name: "商品券 1万円分",
+        applyTerm: term,
+        winner: Winner(1),
+        description: description),
+    formTitle: "テスト",
+    thumbnailImagePath: thumbnailImagePath,
+  ),
+  PresentModel(
+    content: PresentContentsModel(
+        name: "商品券 1万円分",
+        applyTerm: term,
+        winner: Winner(10),
+        description: description),
+    formTitle: "テスト",
+    thumbnailImagePath: thumbnailImagePath,
+  ),
 ];
 
 ApplyTerm term = ApplyTerm(
