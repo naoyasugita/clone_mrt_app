@@ -6,7 +6,7 @@ import 'package:clone_mrt_app/screens/breaking_news/breaking_news_body.dart';
 import 'package:clone_mrt_app/screens/holiday_doctor/holiday_doctor_body.dart';
 import 'package:clone_mrt_app/screens/live_camera/live_camera_body.dart';
 import 'package:clone_mrt_app/screens/news/news_body.dart';
-import 'package:clone_mrt_app/screens/present/present_bodu.dart';
+import 'package:clone_mrt_app/screens/present/present_body.dart';
 import 'package:clone_mrt_app/screens/shop_introduction/shop_introduction.dart';
 import 'package:clone_mrt_app/screens/uchinoko/uchinoko_body.dart';
 import 'package:clone_mrt_app/screens/usage/usage_body.dart';
