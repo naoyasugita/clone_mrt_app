@@ -70,6 +70,12 @@ class BreakingNewsModel {
 List<BreakingNewsModel> breakingNewsList = [
   BreakingNewsModel(
     title: shortTitle,
+    categpry: BreakinngNewsCategoty(NewsCategpryType.Caution),
+    datetime: BreakingNewsDatatime("10月31日(土) 18:30"),
+    content: longContentText,
+  ),
+  BreakingNewsModel(
+    title: shortTitle,
     categpry: BreakinngNewsCategoty(NewsCategpryType.Info),
     datetime: BreakingNewsDatatime("10月20日(月) 18:30"),
     content: contentText,
@@ -102,6 +108,9 @@ List<BreakingNewsModel> breakingNewsList = [
 
 String contentText =
     "親譲りの無鉄砲で子供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間程腰を抜かした事がある。なぜそんな無闇（むやみ）をしたと聞く人があるかもしれぬ。別段深い理由でもない。";
+
+String longContentText =
+    "10月31日 18時30分発表\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n";
 
 String longTitle = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
 
