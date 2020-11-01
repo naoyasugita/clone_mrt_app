@@ -85,10 +85,7 @@ class BreakingNewsContents extends StatelessWidget {
       width: size.width - 60,
       child: Row(
         children: [
-          Icon(
-            breakingNewsList[index].categpry.toIcon(),
-            size: 50,
-          ),
+          breakingNewsList[index].categpry.toIcon(),
           // TODO: 横幅を調整できるようにする
           // https://itome.team/blog/2019/12/flutter-advent-calendar-day9/
           Expanded(
