@@ -28,20 +28,20 @@ class BreakinngNewsCategoty {
     }
   }
 
-  // String toString() {
-  //   switch (this.categpryType) {
-  //     case NewsCategpryType.Caution:
-  //       return "警報・注意報";
-  //     case NewsCategpryType.Info:
-  //       return "";
-  //     case NewsCategpryType.Earthquake:
-  //       return "震源・震度情報";
-  //     case NewsCategpryType.News:
-  //       return "ニュース速報";
-  //     default:
-  //       return "";
-  //   }
-  // }
+  String toString() {
+    switch (this.categpryType) {
+      case NewsCategpryType.Caution:
+        return "警報・注意報";
+      case NewsCategpryType.Info:
+        return "お知らせ";
+      case NewsCategpryType.Earthquake:
+        return "震源・震度情報";
+      case NewsCategpryType.News:
+        return "ニュース速報";
+      default:
+        return "";
+    }
+  }
 }
 
 class BreakingNewsDatatime {
