@@ -9,39 +9,58 @@ enum NewsCategpryType {
 
 class BreakinngNewsCategoty {
   final NewsCategpryType categpryType;
-  // String categoryName;
 
   BreakinngNewsCategoty(this.categpryType);
 
-  IconData toIcon() {
+  Icon toIcon() {
     switch (this.categpryType) {
       case NewsCategpryType.Caution:
-        return Icons.warning;
+        return Icon(
+          Icons.warning,
+          size: 50,
+          color: Colors.yellow[700],
+        );
+
       case NewsCategpryType.Info:
-        return Icons.info;
+        return Icon(
+          Icons.info,
+          size: 50,
+          color: Colors.green[400],
+        );
       case NewsCategpryType.Earthquake:
-        return Icons.public;
+        return Icon(
+          Icons.public,
+          size: 50,
+          color: Colors.brown,
+        );
       case NewsCategpryType.News:
-        return Icons.fiber_new;
+        return Icon(
+          Icons.fiber_new,
+          size: 50,
+          color: Colors.blue[400],
+        );
       default:
-        return Icons.arrow_forward;
+        return Icon(
+          Icons.arrow_forward,
+          size: 50,
+        );
     }
   }
 
-  // String toString() {
-  //   switch (this.categpryType) {
-  //     case NewsCategpryType.Caution:
-  //       return "警報・注意報";
-  //     case NewsCategpryType.Info:
-  //       return "";
-  //     case NewsCategpryType.Earthquake:
-  //       return "震源・震度情報";
-  //     case NewsCategpryType.News:
-  //       return "ニュース速報";
-  //     default:
-  //       return "";
-  //   }
-  // }
+  String toString() {
+    switch (this.categpryType) {
+      case NewsCategpryType.Caution:
+        return "警報・注意報";
+      case NewsCategpryType.Info:
+        return "お知らせ";
+      case NewsCategpryType.Earthquake:
+        return "震源・震度情報";
+      case NewsCategpryType.News:
+        return "ニュース速報";
+      default:
+        return "";
+    }
+  }
 }
 
 class BreakingNewsDatatime {
@@ -63,18 +82,28 @@ class BreakingNewsModel {
   final BreakinngNewsCategoty categpry;
   final BreakingNewsDatatime datetime;
   final String content;
+  final String url;
 
-  BreakingNewsModel({this.title, this.categpry, this.datetime, this.content});
+  BreakingNewsModel(
+      {this.url = "", this.title, this.categpry, this.datetime, this.content});
 }
 
 List<BreakingNewsModel> breakingNewsList = [
   BreakingNewsModel(
+    title: shortTitle,
+    categpry: BreakinngNewsCategoty(NewsCategpryType.Caution),
+    datetime: BreakingNewsDatatime("10月31日(土) 18:30"),
+    content: longContentText,
+  ),
+  BreakingNewsModel(
+    url: "https://mrt.jp",
     title: shortTitle,
     categpry: BreakinngNewsCategoty(NewsCategpryType.Info),
     datetime: BreakingNewsDatatime("10月20日(月) 18:30"),
     content: contentText,
   ),
   BreakingNewsModel(
+    url: "https://mrt.jp",
     title: shortTitle,
     categpry: BreakinngNewsCategoty(NewsCategpryType.Info),
     datetime: BreakingNewsDatatime("10月16日(金) 11:30"),
@@ -102,6 +131,9 @@ List<BreakingNewsModel> breakingNewsList = [
 
 String contentText =
     "親譲りの無鉄砲で子供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間程腰を抜かした事がある。なぜそんな無闇（むやみ）をしたと聞く人があるかもしれぬ。別段深い理由でもない。";
+
+String longContentText =
+    "10月31日 18時30分発表\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n・宮崎市\n波浪注意報\n";
 
 String longTitle = "テストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト";
 

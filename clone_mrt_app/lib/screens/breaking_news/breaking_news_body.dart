@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/breaking_news.dart';
+import 'package:clone_mrt_app/screens/breaking_news/breaking_news_detail_body.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsView extends StatelessWidget {
@@ -15,9 +16,13 @@ class BreakingNewsView extends StatelessWidget {
       itemCount: breakingNewsList.length,
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () {
-            print(size.width);
-          },
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return BreakingNewsDetailView(index: index);
+              },
+            ),
+          ),
           child: Container(
             child: Column(
               children: [
@@ -59,7 +64,6 @@ class BreakingNewsView extends StatelessWidget {
           ),
         );
       },
-      // ),
     );
   }
 }
@@ -81,10 +85,7 @@ class BreakingNewsContents extends StatelessWidget {
       width: size.width - 60,
       child: Row(
         children: [
-          Icon(
-            breakingNewsList[index].categpry.toIcon(),
-            size: 50,
-          ),
+          breakingNewsList[index].categpry.toIcon(),
           // TODO: 横幅を調整できるようにする
           // https://itome.team/blog/2019/12/flutter-advent-calendar-day9/
           Expanded(
