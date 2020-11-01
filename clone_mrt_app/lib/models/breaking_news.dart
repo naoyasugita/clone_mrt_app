@@ -9,7 +9,6 @@ enum NewsCategpryType {
 
 class BreakinngNewsCategoty {
   final NewsCategpryType categpryType;
-  // String categoryName;
 
   BreakinngNewsCategoty(this.categpryType);
 
@@ -63,8 +62,10 @@ class BreakingNewsModel {
   final BreakinngNewsCategoty categpry;
   final BreakingNewsDatatime datetime;
   final String content;
+  final String url;
 
-  BreakingNewsModel({this.title, this.categpry, this.datetime, this.content});
+  BreakingNewsModel(
+      {this.url = "", this.title, this.categpry, this.datetime, this.content});
 }
 
 List<BreakingNewsModel> breakingNewsList = [
@@ -75,12 +76,14 @@ List<BreakingNewsModel> breakingNewsList = [
     content: longContentText,
   ),
   BreakingNewsModel(
+    url: "https://mrt.jp",
     title: shortTitle,
     categpry: BreakinngNewsCategoty(NewsCategpryType.Info),
     datetime: BreakingNewsDatatime("10月20日(月) 18:30"),
     content: contentText,
   ),
   BreakingNewsModel(
+    url: "https://mrt.jp",
     title: shortTitle,
     categpry: BreakinngNewsCategoty(NewsCategpryType.Info),
     datetime: BreakingNewsDatatime("10月16日(金) 11:30"),

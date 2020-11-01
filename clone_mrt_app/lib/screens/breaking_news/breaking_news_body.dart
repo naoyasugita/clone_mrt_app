@@ -15,9 +15,64 @@ class BreakingNewsView extends StatelessWidget {
       itemCount: breakingNewsList.length,
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () {
-            print(size.width);
-          },
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return Scaffold(
+                  appBar: AppBar(
+                    title: Text(breakingNewsList[index].categpry.toString()),
+                    backgroundColor: kSecondaryColor,
+                  ),
+                  body: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 10),
+                                child: Text(
+                                  breakingNewsList[index].title,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                breakingNewsList[index].content,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                ),
+                              ),
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  child: Text(
+                                    breakingNewsList[index]
+                                            .datetime
+                                            .getMonthDay() +
+                                        breakingNewsList[index]
+                                            .datetime
+                                            .getHourMinutes(),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
           child: Container(
             child: Column(
               children: [
