@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/news.dart';
+import 'package:clone_mrt_app/screens/news/news_detail_body.dart';
 import 'package:flutter/material.dart';
 
 class NewsListView extends StatelessWidget {
@@ -35,20 +36,29 @@ class NewsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(0, 5.0),
-            blurRadius: 5.0,
-          )
-        ],
+    return GestureDetector(
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return NewsDetailView(index: index);
+          },
+        ),
       ),
-      child: NewsArticle(index: index),
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(0, 5.0),
+              blurRadius: 5.0,
+            )
+          ],
+        ),
+        child: NewsArticle(index: index),
+      ),
     );
   }
 }
