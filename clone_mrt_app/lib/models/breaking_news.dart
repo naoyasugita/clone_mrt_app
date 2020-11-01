@@ -12,18 +12,38 @@ class BreakinngNewsCategoty {
 
   BreakinngNewsCategoty(this.categpryType);
 
-  IconData toIcon() {
+  Icon toIcon() {
     switch (this.categpryType) {
       case NewsCategpryType.Caution:
-        return Icons.warning;
+        return Icon(
+          Icons.warning,
+          size: 50,
+          color: Colors.yellow[700],
+        );
+
       case NewsCategpryType.Info:
-        return Icons.info;
+        return Icon(
+          Icons.info,
+          size: 50,
+          color: Colors.green[400],
+        );
       case NewsCategpryType.Earthquake:
-        return Icons.public;
+        return Icon(
+          Icons.public,
+          size: 50,
+          color: Colors.brown,
+        );
       case NewsCategpryType.News:
-        return Icons.fiber_new;
+        return Icon(
+          Icons.fiber_new,
+          size: 50,
+          color: Colors.blue[400],
+        );
       default:
-        return Icons.arrow_forward;
+        return Icon(
+          Icons.arrow_forward,
+          size: 50,
+        );
     }
   }
 
