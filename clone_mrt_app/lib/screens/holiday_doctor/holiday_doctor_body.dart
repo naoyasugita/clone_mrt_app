@@ -3,8 +3,6 @@ import 'package:clone_mrt_app/models/holiday_doctor.dart';
 import 'package:flutter/material.dart';
 
 class HospitalListView extends StatelessWidget {
-  final List<HospitalInfoModelList> _hospitalList = hospitalList;
-
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -25,9 +23,9 @@ class HospitalListView extends StatelessWidget {
             )
           ],
         ),
-        child: HospitalInfoView(hospitalList: _hospitalList, index: index),
+        child: HospitalInfoView(index: index),
       ),
-      itemCount: _hospitalList.length,
+      itemCount: hospitalList.length,
     );
   }
 }
