@@ -36,56 +36,138 @@ class HospitalInfoView extends StatelessWidget {
   const HospitalInfoView({
     Key key,
     this.index,
-    @required List<HospitalInfoModelList> hospitalList,
-  })  : _hospitalList = hospitalList,
-        super(key: key);
-
-  final List<HospitalInfoModelList> _hospitalList;
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
       backgroundColor: Colors.purple[100],
-      title: Text(_hospitalList[index].hospitalType.toJapanese()),
+      title: Text(hospitalList[index].hospitalType.toJapanese()),
       leading: Icon(Icons.add_box),
-      children: buildList(index).toList(),
+      children: buildList(context, index).toList(),
     );
   }
 
-  List<Container> buildList(int index) {
+  List<Widget> buildList(BuildContext context, int index) {
     return List.generate(
-      _hospitalList[index].hospitalList.length,
-      (_index) => Container(
-        padding: EdgeInsets.all(10),
-        alignment: Alignment.centerLeft,
-        margin: EdgeInsets.only(
-          right: 10,
-          bottom: 10,
-          left: 10,
+      hospitalList[index].hospitalList.length,
+      (_index) => GestureDetector(
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: Text('休日当番医'),
+                  backgroundColor: kSecondaryColor,
+                ),
+                body: SingleChildScrollView(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            hospitalList[index].hospitalList[_index].datetime +
+                                " " +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .cityName,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          hospitalList[index].hospitalList[_index].hospitalName,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            "＜住所＞\n" +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .address,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            "＜電話番号＞\n" +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .telephone,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            "＜診察時間・科目等＞\n" +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .category +
+                                "\n" +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .examinationTime
+                                    .getSinceUntil(),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 10),
+                          child: Text(
+                            "【情報提供元】\n" +
+                                hospitalList[index]
+                                    .hospitalList[_index]
+                                    .infoSource,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
         ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(kBorderRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 3.0),
-              blurRadius: 5.0,
-            )
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(_hospitalList[index].hospitalList[_index].datetime +
-                _hospitalList[index].hospitalList[_index].cityName),
-            Text(
-              _hospitalList[index].hospitalList[_index].hospitalName,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+        child: Container(
+          padding: EdgeInsets.all(10),
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.only(
+            right: 10,
+            bottom: 10,
+            left: 10,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(kBorderRadius),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(0, 3.0),
+                blurRadius: 5.0,
+              )
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(hospitalList[index].hospitalList[_index].datetime +
+                  hospitalList[index].hospitalList[_index].cityName),
+              Text(
+                hospitalList[index].hospitalList[_index].hospitalName,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
