@@ -14,7 +14,11 @@ class EventListView extends StatelessWidget {
       itemCount: eventModelList.length,
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.only(top: 10, right: 10, left: 10),
+          margin: EdgeInsets.only(
+            top: 10,
+            right: 10,
+            left: 10,
+          ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(kBorderRadius),
             color: eventModelList[index].category.getBackgroundColor(),
@@ -30,7 +34,6 @@ class EventListView extends StatelessWidget {
             alignment: Alignment.center,
             child: Column(
               children: [
-                // TODO: データ構造の見直しと複数イベントの表示に対応
                 CategoryHeader(index: index),
                 EventContent(index: index),
               ],
@@ -87,32 +90,44 @@ class EventContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        _launchURL(eventModelList[index].siteUrl);
-      },
-      child: Container(
-        alignment: Alignment.centerLeft,
-        margin: EdgeInsets.only(bottom: 10, right: 10, left: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 3.0),
-              blurRadius: 5.0,
-            )
-          ],
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(5),
-          child: Text(
-            eventModelList[index].title,
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 12,
+    return Column(
+      children: buildList(
+        context,
+        index,
+      ),
+    );
+  }
+
+  List<Widget> buildList(BuildContext context, int index) {
+    return List.generate(
+      eventModelList[index].eventModel.length,
+      (modelIndex) => GestureDetector(
+        onTap: () {
+          _launchURL(eventModelList[index].eventModel[modelIndex].siteUrl);
+        },
+        child: Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.only(bottom: 10, right: 10, left: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(kBorderRadius),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(0, 3.0),
+                blurRadius: 5.0,
+              )
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(5),
+            child: Text(
+              eventModelList[index].eventModel[modelIndex].title,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 13,
+              ),
             ),
           ),
         ),
