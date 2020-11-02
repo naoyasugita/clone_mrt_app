@@ -76,35 +76,103 @@ class EventCategory {
 class EventModel {
   final String title;
   final String siteUrl;
-  final EventCategory category;
+  // final EventCategory category;
 
   EventModel({
     this.title,
-    this.category,
+    // this.category,
     this.siteUrl,
   });
 }
 
-List<EventModel> eventModelList = [
+List<EventModel> musicEventList = [
   EventModel(
     title: shirtTitle,
-    category: EventCategory(EventType.Music),
     siteUrl: "http://mrt.jp/event/",
   ),
   EventModel(
     title: middleTitle,
-    category: EventCategory(EventType.Stage),
     siteUrl: "http://mrt.jp/event/",
   ),
   EventModel(
     title: longTitle,
-    category: EventCategory(EventType.Sport),
     siteUrl: "http://mrt.jp/event/",
   ),
   EventModel(
     title: longTitle,
-    category: EventCategory(EventType.Other),
     siteUrl: "http://mrt.jp/event/",
+  ),
+];
+
+List<EventModel> stageEventList = [
+  EventModel(
+    title: shirtTitle,
+    siteUrl: "http://mrt.jp/event/",
+  ),
+];
+
+List<EventModel> sportEventList = [
+  EventModel(
+    title: shirtTitle,
+    siteUrl: "http://mrt.jp/event/",
+  ),
+  EventModel(
+    title: shirtTitle,
+    siteUrl: "http://mrt.jp/event/",
+  ),
+];
+
+List<EventModel> otherEventList = [
+  EventModel(
+    title: shirtTitle,
+    siteUrl: "http://mrt.jp/event/",
+  ),
+  EventModel(
+    title: shirtTitle,
+    siteUrl: "http://mrt.jp/event/",
+  ),
+];
+
+class EventModelList {
+  final String title;
+  final EventCategory category;
+  final List<EventModel> eventModel;
+
+  EventModelList({
+    this.title,
+    this.category,
+    this.eventModel,
+  });
+}
+
+List<EventModelList> eventModelList = [
+  EventModelList(
+    title: "音楽",
+    category: EventCategory(
+      EventType.Music,
+    ),
+    eventModel: musicEventList,
+  ),
+  EventModelList(
+    title: "舞台",
+    category: EventCategory(
+      EventType.Stage,
+    ),
+    eventModel: stageEventList,
+  ),
+  EventModelList(
+    title: "スポーツ",
+    category: EventCategory(
+      EventType.Sport,
+    ),
+    eventModel: sportEventList,
+  ),
+  EventModelList(
+    title: "その他",
+    category: EventCategory(
+      EventType.Other,
+    ),
+    eventModel: otherEventList,
   ),
 ];
 
