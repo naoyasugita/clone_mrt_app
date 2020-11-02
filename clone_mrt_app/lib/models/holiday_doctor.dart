@@ -257,7 +257,7 @@ class HospitalInfoModelList {
   HospitalInfoModelList({this.hospitalType, this.hospitalList});
 }
 
-List<HospitalInfoModelList> hospitalList = [
+List<HospitalInfoModelList> hospitalModelList = [
   HospitalInfoModelList(
     hospitalType: HospitalTypeModel(HospitalType.InternalMedicine),
     hospitalList: internalMedicine,
