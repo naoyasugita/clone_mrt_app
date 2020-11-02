@@ -9,9 +9,9 @@ class HospitalListView extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) => Container(
         margin: EdgeInsets.only(
-          right: 5,
-          bottom: 5,
-          left: 5,
+          right: 10,
+          top: 10,
+          left: 10,
         ),
         decoration: BoxDecoration(
           color: Colors.purple[100],
