@@ -10,19 +10,68 @@ class UchinokoListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: uchinokoList.length,
-      padding: EdgeInsets.all(kDefaultPadding),
-      shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 10.0,
-        crossAxisSpacing: 10.0,
-        childAspectRatio: 0.8,
+    return Container(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView.builder(
+              // TODO: 一部のリストはWidgetで作成する
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: uchinokoHeaderList.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    _launchURL(uchinokoHeaderList[index].url);
+                  },
+                  child: Container(
+                    width: 300,
+                    margin: EdgeInsets.only(
+                      top: 10,
+                      right: 10,
+                      left: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(kBorderRadius),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 5.0),
+                          blurRadius: 5.0,
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(kBorderRadius),
+                      ),
+                      child: Image.asset(
+                        uchinokoHeaderList[index].imagePath,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            GridView.builder(
+              itemCount: uchinokoList.length,
+              padding: EdgeInsets.all(kDefaultPadding),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10.0,
+                crossAxisSpacing: 10.0,
+                childAspectRatio: 0.8,
+              ),
+              itemBuilder: (context, index) {
+                return UchinokoView(index: index);
+              },
+            ),
+          ],
+        ),
       ),
-      itemBuilder: (context, index) {
-        return UchinokoView(index: index);
-      },
     );
   }
 }
