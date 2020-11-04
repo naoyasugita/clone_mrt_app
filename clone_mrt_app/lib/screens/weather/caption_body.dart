@@ -18,49 +18,7 @@ class FlexibleCaption extends StatelessWidget {
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
           builder: (context) {
-            return Scaffold(
-              backgroundColor: Colors.lightBlue[50],
-              appBar: AppBar(
-                title: Text('天気'),
-                backgroundColor: kSecondaryColor,
-              ),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                      ),
-                      color: Colors.blue[900],
-                      child: Center(
-                        child: Text(
-                          weatherCattionList.caption[index].subject,
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Column(
-                      children: _buildList(context, index).toList(),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 5,
-                      ),
-                      child: Text(
-                        "Copytight © 1996-2020 XXXXXX Co.,Ltd. All rights reserved.",
-                        style: TextStyle(
-                          fontSize: 8,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
+            return WeatherDetailView(index: index);
           },
         ),
       ),
@@ -97,6 +55,62 @@ class FlexibleCaption extends StatelessWidget {
               offset: Offset(0, 5.0),
               blurRadius: 5.0,
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WeatherDetailView extends StatelessWidget {
+  const WeatherDetailView({
+    Key key,
+    this.index,
+  }) : super(key: key);
+
+  final index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: AppBar(
+        title: Text('天気'),
+        backgroundColor: kSecondaryColor,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 10,
+              ),
+              color: Colors.blue[900],
+              child: Center(
+                child: Text(
+                  weatherCattionList.caption[index].subject,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            Column(
+              children: _buildList(context, index).toList(),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                vertical: 5,
+              ),
+              child: Text(
+                "Copytight © 1996-2020 XXXXXX Co.,Ltd. All rights reserved.",
+                style: TextStyle(
+                  fontSize: 8,
+                ),
+              ),
+            ),
           ],
         ),
       ),
