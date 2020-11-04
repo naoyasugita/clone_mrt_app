@@ -1,20 +1,29 @@
 import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/constants.dart';
+import 'package:clone_mrt_app/screens/weather/weather_detail.dart';
 import 'package:flutter/material.dart';
 
-class LargeCaption extends StatelessWidget {
-  const LargeCaption({
+class FlexibleCaption extends StatelessWidget {
+  const FlexibleCaption({
     Key key,
+    this.index,
+    this.size,
   }) : super(key: key);
+
+  final index;
+  final size;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print("large caption is pressed");
-      },
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return WeatherDetailView(index: index);
+          },
+        ),
+      ),
       child: Container(
-        // TODO: 動的にサイズを調整できるようにする
         child: Column(
           children: [
             ClipRRect(
@@ -22,14 +31,14 @@ class LargeCaption extends StatelessWidget {
                 top: Radius.circular(kBorderRadius),
               ),
               child: Image.asset(
-                weatherCattion.imagePath,
+                weatherCattionList.caption[index].imagePath[0],
                 fit: BoxFit.fitWidth,
-                height: 174,
+                height: size == "s" ? 114 : 174,
                 width: 500,
               ),
             ),
             Text(
-              weatherCattion.subject,
+              weatherCattionList.caption[index].subject,
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,

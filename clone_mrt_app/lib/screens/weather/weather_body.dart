@@ -1,7 +1,6 @@
 import 'package:clone_mrt_app/models/weather.dart';
 import 'package:clone_mrt_app/screens/weather/daily_weather_view.dart';
-import 'package:clone_mrt_app/screens/weather/large_caption.dart';
-import 'package:clone_mrt_app/screens/weather/small_caption.dart';
+import 'package:clone_mrt_app/screens/weather/caption_body.dart';
 import 'package:clone_mrt_app/screens/weather/weekly_forecast_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -13,10 +12,29 @@ class WeatherView extends StatelessWidget {
       padding: EdgeInsets.all(4),
       crossAxisCount: 2,
       staggeredTiles: _staggeredTiles,
-      children: _tiles,
+      children: _buildList().toList(),
       mainAxisSpacing: 2,
       crossAxisSpacing: 2,
     );
+  }
+
+  List<Widget> _buildList() {
+    return List.generate(
+      weatherCattionList.caption.length,
+      (index) => Padding(
+        padding: EdgeInsets.all(4),
+        child: _buildInfo(weatherCattionList.caption[index].captionSize, index),
+      ),
+    );
+  }
+
+  Widget _buildInfo(String captionsize, int index) {
+    if (captionsize == "recentWeather") {
+      return WeatherContent(recentWeather);
+    } else if (captionsize == "weeklyForecast") {
+      return WeeklyForecast();
+    }
+    return FlexibleCaption(index: index, size: captionsize);
   }
 }
 
@@ -34,44 +52,19 @@ List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   smallCard,
   smallCard,
   smallCard,
-];
-
-List<Widget> _tiles = <Widget>[
-  // TODO: データを引数から渡せるようにする
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: WeatherContent(recentWeather),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: WeeklyForecast(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: SmallCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: SmallCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: LargeCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: LargeCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: SmallCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: SmallCaption(),
-  ),
-  Padding(
-    padding: EdgeInsets.all(4),
-    child: SmallCaption(),
-  ),
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  largeCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
+  smallCard,
 ];
