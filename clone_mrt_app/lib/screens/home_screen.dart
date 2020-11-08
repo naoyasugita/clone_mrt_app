@@ -91,15 +91,6 @@ class BuildAppBar extends StatelessWidget {
   }
 }
 
-Container myContainer(String text) {
-  return Container(
-    alignment: Alignment.center,
-    width: 100,
-    height: 100,
-    child: Text(text),
-  );
-}
-
 class Body extends StatelessWidget {
   const Body({
     Key key,
@@ -141,6 +132,9 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => 38;
 
   @override
+  bool shouldRebuild(_TabBarDelegate oldDelegate) {
+    return tabBar != oldDelegate.tabBar;
+  }
 
   @override
   Widget build(
@@ -149,10 +143,5 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     return Container(color: kSecondaryColor, child: tabBar);
-  }
-
-  @override
-  bool shouldRebuild(_TabBarDelegate oldDelegate) {
-    return tabBar != oldDelegate.tabBar;
   }
 }
