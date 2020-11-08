@@ -50,7 +50,7 @@ class BuildAppBar extends StatelessWidget {
             pinned: false,
             expandedHeight: 30,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text("DEMO APP"),
+              title: Text("DEMO APP"),
               centerTitle: true,
             ),
             actions: [
