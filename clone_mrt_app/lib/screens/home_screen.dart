@@ -64,10 +64,22 @@ class BuildAppBar extends StatelessWidget {
             pinned: true,
             delegate: _TabBarDelegate(
               TabBar(
-                // TODO indicatorのDecoration(アニメーション)設定
                 indicatorColor: kSecondaryColor,
+                indicator: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      color: Colors.yellow,
+                      width: 3,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  color: Colors.orange,
+                ),
                 isScrollable: true,
                 unselectedLabelColor: kUnselectedLabelColor,
+                unselectedLabelStyle: TextStyle(),
                 tabs: tabs.map((_tab) => Tab(text: _tab.name)).toList(),
               ),
             ),
