@@ -34,10 +34,36 @@ class MyAppHome extends StatelessWidget {
   }
 }
 
-class BuildAppBar extends StatelessWidget {
-  const BuildAppBar({
-    Key key,
-  }) : super(key: key);
+class BuildAppBar extends StatefulWidget {
+  @override
+  _BuildAppBar createState() => new _BuildAppBar();
+}
+
+class _BuildAppBar extends State<BuildAppBar>
+    with SingleTickerProviderStateMixin {
+  int currentIndex = 0;
+
+// class BuildAppBar extends StatelessWidget {
+//   const BuildAppBar({
+//     Key key,
+//   }) : super(key: key);
+
+  TabController _controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // Create TabController for getting the index of current tab
+    _controller = TabController(length: tabs.length, vsync: this);
+
+    _controller.addListener(() {
+      setState(() {
+        currentIndex = _controller.index;
+      });
+      print("Selected Index: " + _controller.index.toString());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,29 +90,70 @@ class BuildAppBar extends StatelessWidget {
             pinned: true,
             delegate: _TabBarDelegate(
               TabBar(
+                controller: _controller,
+                onTap: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                  print(currentIndex);
+                  print(tabs[currentIndex].name);
+                },
+                // indicatorPadding: EdgeInsets.symmetric(vertical: 10),
                 indicatorColor: kSecondaryColor,
-                indicator: ShapeDecoration(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Colors.yellow,
-                      width: 3,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  color: Colors.orange,
-                ),
+                // indicator: ShapeDecoration(
+                //   shape: RoundedRectangleBorder(
+                //     side: BorderSide(
+                //       color: Colors.yellow,
+                //       width: 3,
+                //     ),
+                //     borderRadius: BorderRadius.all(
+                //       Radius.circular(20),
+                //     ),
+                //   ),
+                //   color: Colors.orange,
+                // ),
                 isScrollable: true,
                 unselectedLabelColor: kUnselectedLabelColor,
                 unselectedLabelStyle: TextStyle(),
-                tabs: tabs.map((_tab) => Tab(text: _tab.name)).toList(),
+                tabs: tabs
+                    .map(
+                      (_tab) => (_tab.name == tabs[currentIndex].name)
+                          ? Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.symmetric(vertical: 3),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 3,
+                                  color: Colors.yellow,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.orange,
+                                    // blurRadius: 5.0,
+                                  )
+                                ],
+                              ),
+                              child: Tab(text: _tab.name),
+                              // child: Tab(text: index.toString()),
+                            )
+                          : Container(
+                              // padding: EdgeInsets.symmetric(horizontal: 10),
+                              // margin: EdgeInsets.symmetric(vertical: 3),
+                              child: Tab(text: _tab.name),
+                              // child: Tab(text: index.toString()),
+                            ),
+                      // (_tab) => Tab(
+                      //   text: _tab.name,
+                      // ),
+                    )
+                    .toList(),
               ),
             ),
           ),
         ];
       },
-      body: Body(),
+      body: Body(controller: _controller),
     );
   }
 }
@@ -94,11 +161,14 @@ class BuildAppBar extends StatelessWidget {
 class Body extends StatelessWidget {
   const Body({
     Key key,
+    this.controller,
   }) : super(key: key);
+  final controller;
 
   @override
   Widget build(BuildContext context) {
     return TabBarView(
+      controller: controller,
       children: [
         NewsListView(),
         WeatherView(),
