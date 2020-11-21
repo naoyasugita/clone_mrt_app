@@ -105,63 +105,72 @@ class Body extends StatelessWidget {
         Container(
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(
-                  top: 10,
-                  right: 10,
-                  left: 10,
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Scaffold();
+                    },
+                  ),
                 ),
-                padding: EdgeInsets.all(10),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(kBorderRadius),
-                  gradient: LinearGradient(colors: [
-                    Colors.orange[700],
-                    Colors.orange[400],
-                  ], stops: [
-                    0.3,
-                    1
-                  ]),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(0, 5.0),
-                      blurRadius: 5.0,
-                    )
-                  ],
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: Icon(
-                        Icons.cake,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 30),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white,
-                          )
-                        ],
-                      ),
-                      child: Text(
-                        "飲食店辞表者様のお申し込みはこちらから",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          color: Colors.orange[900],
-                          fontSize: 14,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: 10,
+                    right: 10,
+                    left: 10,
+                  ),
+                  padding: EdgeInsets.all(10),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(kBorderRadius),
+                    gradient: LinearGradient(colors: [
+                      Colors.orange[700],
+                      Colors.orange[400],
+                    ], stops: [
+                      0.3,
+                      1
+                    ]),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(0, 5.0),
+                        blurRadius: 5.0,
+                      )
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Icon(
+                          Icons.cake,
+                          color: Colors.white,
+                          size: 40,
                         ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                        child: Text(
+                          "飲食店辞表者様のお申し込みはこちらから",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w900,
+                            color: Colors.orange[900],
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
