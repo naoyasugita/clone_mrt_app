@@ -52,16 +52,13 @@ class _BuildAppBar extends State<BuildAppBar>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    // Create TabController for getting the index of current tab
     _controller = TabController(length: tabs.length, vsync: this);
 
     _controller.addListener(() {
       setState(() {
         currentIndex = _controller.index;
       });
-      print("Selected Index: " + _controller.index.toString());
     });
   }
 
@@ -120,7 +117,7 @@ class _BuildAppBar extends State<BuildAppBar>
                       (_tab) => (_tab.name == tabs[currentIndex].name)
                           ? Container(
                               padding: EdgeInsets.symmetric(horizontal: 10),
-                              margin: EdgeInsets.symmetric(vertical: 3),
+                              margin: EdgeInsets.only(top: 4, bottom: 1),
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 3,
@@ -130,22 +127,14 @@ class _BuildAppBar extends State<BuildAppBar>
                                 boxShadow: [
                                   BoxShadow(
                                     color: Colors.orange,
-                                    // blurRadius: 5.0,
                                   )
                                 ],
                               ),
                               child: Tab(text: _tab.name),
-                              // child: Tab(text: index.toString()),
                             )
                           : Container(
-                              // padding: EdgeInsets.symmetric(horizontal: 10),
-                              // margin: EdgeInsets.symmetric(vertical: 3),
                               child: Tab(text: _tab.name),
-                              // child: Tab(text: index.toString()),
                             ),
-                      // (_tab) => Tab(
-                      //   text: _tab.name,
-                      // ),
                     )
                     .toList(),
               ),
