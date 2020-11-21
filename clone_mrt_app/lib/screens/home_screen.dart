@@ -34,10 +34,33 @@ class MyAppHome extends StatelessWidget {
   }
 }
 
-class BuildAppBar extends StatelessWidget {
-  const BuildAppBar({
-    Key key,
-  }) : super(key: key);
+class BuildAppBar extends StatefulWidget {
+  @override
+  _BuildAppBar createState() => new _BuildAppBar();
+}
+
+class _BuildAppBar extends State<BuildAppBar>
+    with SingleTickerProviderStateMixin {
+  int currentIndex = 0;
+
+// class BuildAppBar extends StatelessWidget {
+//   const BuildAppBar({
+//     Key key,
+//   }) : super(key: key);
+
+  TabController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(length: tabs.length, vsync: this);
+
+    _controller.addListener(() {
+      setState(() {
+        currentIndex = _controller.index;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +73,7 @@ class BuildAppBar extends StatelessWidget {
             pinned: false,
             expandedHeight: 30,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text("DEMO APP"),
+              title: Text("DEMO APP"),
               centerTitle: true,
             ),
             actions: [
@@ -64,38 +87,77 @@ class BuildAppBar extends StatelessWidget {
             pinned: true,
             delegate: _TabBarDelegate(
               TabBar(
-                // TODO indicatorのDecoration(アニメーション)設定
+                controller: _controller,
+                onTap: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                  print(currentIndex);
+                  print(tabs[currentIndex].name);
+                },
+                // indicatorPadding: EdgeInsets.symmetric(vertical: 10),
                 indicatorColor: kSecondaryColor,
+                // indicator: ShapeDecoration(
+                //   shape: RoundedRectangleBorder(
+                //     side: BorderSide(
+                //       color: Colors.yellow,
+                //       width: 3,
+                //     ),
+                //     borderRadius: BorderRadius.all(
+                //       Radius.circular(20),
+                //     ),
+                //   ),
+                //   color: Colors.orange,
+                // ),
                 isScrollable: true,
                 unselectedLabelColor: kUnselectedLabelColor,
-                tabs: tabs.map((_tab) => Tab(text: _tab.name)).toList(),
+                unselectedLabelStyle: TextStyle(),
+                tabs: tabs
+                    .map(
+                      (_tab) => (_tab.name == tabs[currentIndex].name)
+                          ? Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              margin: EdgeInsets.only(top: 4, bottom: 1),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 3,
+                                  color: Colors.yellow,
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.orange,
+                                  )
+                                ],
+                              ),
+                              child: Tab(text: _tab.name),
+                            )
+                          : Container(
+                              child: Tab(text: _tab.name),
+                            ),
+                    )
+                    .toList(),
               ),
             ),
           ),
         ];
       },
-      body: Body(),
+      body: Body(controller: _controller),
     );
   }
-}
-
-Container myContainer(String text) {
-  return Container(
-    alignment: Alignment.center,
-    width: 100,
-    height: 100,
-    child: Text(text),
-  );
 }
 
 class Body extends StatelessWidget {
   const Body({
     Key key,
+    this.controller,
   }) : super(key: key);
+  final controller;
 
   @override
   Widget build(BuildContext context) {
     return TabBarView(
+      controller: controller,
       children: [
         NewsListView(),
         WeatherView(),
@@ -123,10 +185,15 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar tabBar;
 
   @override
-  double get minExtent => tabBar.preferredSize.height;
+  double get minExtent => 38;
 
   @override
-  double get maxExtent => tabBar.preferredSize.height;
+  double get maxExtent => 38;
+
+  @override
+  bool shouldRebuild(_TabBarDelegate oldDelegate) {
+    return tabBar != oldDelegate.tabBar;
+  }
 
   @override
   Widget build(
@@ -135,10 +202,5 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
     bool overlapsContent,
   ) {
     return Container(color: kSecondaryColor, child: tabBar);
-  }
-
-  @override
-  bool shouldRebuild(_TabBarDelegate oldDelegate) {
-    return tabBar != oldDelegate.tabBar;
   }
 }
