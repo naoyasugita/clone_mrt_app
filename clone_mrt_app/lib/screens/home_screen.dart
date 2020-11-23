@@ -114,11 +114,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(
-                    top: 10,
-                    right: 10,
-                    left: 10,
-                  ),
+                  margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
@@ -168,6 +164,150 @@ class Body extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Scaffold();
+                    },
+                  ),
+                ),
+                child: Container(
+                  height: 120,
+                  margin: EdgeInsets.only(
+                    right: 10,
+                    bottom: 10,
+                    left: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(kBorderRadius),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(0, 5.0),
+                        blurRadius: 5.0,
+                      )
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 120,
+                        child: Image.asset("assets/coupon.png"),
+                        decoration: BoxDecoration(
+                          // borderRadius: BorderRadius.only(
+                          //   topLeft: Radius.circular(kBorderRadius),
+                          //   bottomLeft: Radius.circular(kBorderRadius),
+                          // ),
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.grey,
+                          //     offset: Offset(1, 0),
+                          //     blurRadius: 2.0,
+                          //   )
+                          // ],
+                          border: Border(
+                            right: BorderSide(
+                              width: 1,
+                              color: Colors.orange,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(5),
+                            child: Text(
+                              "coupon名coupon名",
+                              // maxLines: 3,
+                              // overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          // Image.asset(
+                          //   "assets/border.png",
+                          //   height: 10,
+                          // ),
+                          Row(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                child: Image.asset(
+                                  "assets/coupon.png",
+                                  // presentModelList[index].thumbnailImagePath,
+                                  width: 100,
+                                  height: 60,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                child: Column(
+                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      alignment: Alignment.topLeft,
+                                      padding: EdgeInsets.only(bottom: 5),
+                                      child: Text(
+                                        "店舗名",
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: Row(
+                                        // mainAxisAlignment:
+                                        //     MainAxisAlignment.end,
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 10,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                              color: Colors.orange[900],
+                                            ),
+                                            child: Text(
+                                              "有効期限",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 5),
+                                            child: Text(
+                                              "2021年1月1日",
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
