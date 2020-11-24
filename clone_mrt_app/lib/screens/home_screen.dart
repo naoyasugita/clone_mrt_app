@@ -178,7 +178,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  height: 120,
+                  height: 150,
                   margin: EdgeInsets.only(
                     right: 10,
                     bottom: 10,
@@ -198,20 +198,9 @@ class Body extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        height: 120,
+                        height: 150,
                         child: Image.asset("assets/coupon.png"),
                         decoration: BoxDecoration(
-                          // borderRadius: BorderRadius.only(
-                          //   topLeft: Radius.circular(kBorderRadius),
-                          //   bottomLeft: Radius.circular(kBorderRadius),
-                          // ),
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: Colors.grey,
-                          //     offset: Offset(1, 0),
-                          //     blurRadius: 2.0,
-                          //   )
-                          // ],
                           border: Border(
                             right: BorderSide(
                               width: 1,
@@ -223,87 +212,98 @@ class Body extends StatelessWidget {
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
+                            alignment: Alignment.centerLeft,
+                            width: MediaQuery.of(context).size.width - 90,
+                            height: 55,
                             padding: EdgeInsets.all(5),
                             child: Text(
-                              "coupon名coupon名",
-                              // maxLines: 3,
-                              // overflow: TextOverflow.ellipsis,
+                              "赤鶏もも炭火焼き（小）もちかえりプレゼント",
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          // Image.asset(
-                          //   "assets/border.png",
-                          //   height: 10,
-                          // ),
+                          Image.asset(
+                            "assets/border.png",
+                            height: 10,
+                            width: MediaQuery.of(context).size.width - 90,
+                            fit: BoxFit.fill,
+                          ),
                           Row(
                             children: [
                               Container(
                                 padding: EdgeInsets.all(5),
                                 child: Image.asset(
                                   "assets/coupon.png",
-                                  // presentModelList[index].thumbnailImagePath,
                                   width: 100,
                                   height: 60,
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              Container(
-                                padding: EdgeInsets.all(10),
-                                child: Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          200,
+                                      height: 40,
                                       alignment: Alignment.topLeft,
                                       padding: EdgeInsets.only(bottom: 5),
                                       child: Text(
-                                        "店舗名",
+                                        "地鶏炭火焼　〇〇",
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                        ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment: Alignment.bottomRight,
-                                      child: Row(
-                                        // mainAxisAlignment:
-                                        //     MainAxisAlignment.end,
-                                        children: [
-                                          Container(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 10,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(4),
-                                              color: Colors.orange[900],
-                                            ),
-                                            child: Text(
-                                              "有効期限",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10,
-                                              ),
+                                  ),
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width - 210,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: 10,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                            color: Colors.orange[900],
+                                          ),
+                                          child: Text(
+                                            "有効期限",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 10,
                                             ),
                                           ),
-                                          Padding(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 5),
-                                            child: Text(
-                                              "2021年1月1日",
-                                              style: TextStyle(
-                                                fontSize: 10,
-                                              ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 5),
+                                          child: Text(
+                                            "2021年1月1日",
+                                            style: TextStyle(
+                                              fontSize: 10,
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
