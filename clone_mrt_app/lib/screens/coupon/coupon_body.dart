@@ -1,4 +1,5 @@
 import 'package:clone_mrt_app/constants.dart';
+import 'package:clone_mrt_app/screens/coupon/coupon_header.dart';
 import 'package:flutter/material.dart';
 
 class CouponView extends StatelessWidget {
@@ -72,101 +73,7 @@ class CouponBodyView extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  width: MediaQuery.of(context).size.width - 90,
-                  height: 55,
-                  padding: EdgeInsets.all(5),
-                  child: Text(
-                    "赤鶏もも炭火焼き（小）もちかえりプレゼント",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Image.asset(
-                  "assets/border.png",
-                  height: 10,
-                  width: MediaQuery.of(context).size.width - 90,
-                  fit: BoxFit.fill,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(5),
-                      child: Image.asset(
-                        "assets/coupon.png",
-                        width: 100,
-                        height: 60,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width - 200,
-                            height: 40,
-                            alignment: Alignment.topLeft,
-                            padding: EdgeInsets.only(bottom: 5),
-                            child: Text(
-                              "地鶏炭火焼　〇〇",
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width - 210,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  color: Colors.orange[900],
-                                ),
-                                child: Text(
-                                  "有効期限",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: Text(
-                                  "2021年1月1日",
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            CouponOverview(),
           ],
         ),
       ),
@@ -174,75 +81,139 @@ class CouponBodyView extends StatelessWidget {
   }
 }
 
-class CouponHeader extends StatelessWidget {
-  const CouponHeader({
+class CouponOverview extends StatelessWidget {
+  const CouponOverview({
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) {
-            return Scaffold();
-          },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        CouponName(),
+        Image.asset(
+          "assets/border.png",
+          height: 10,
+          width: MediaQuery.of(context).size.width - 90,
+          fit: BoxFit.fill,
+        ),
+        Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(5),
+              child: Image.asset(
+                "assets/coupon.png",
+                width: 100,
+                height: 60,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ShopNameView(),
+                CouponExpiration(),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class CouponName extends StatelessWidget {
+  const CouponName({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.centerLeft,
+      width: MediaQuery.of(context).size.width - 90,
+      height: 55,
+      padding: EdgeInsets.all(5),
+      child: Text(
+        "赤鶏もも炭火焼き（小）もちかえりプレゼント",
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
         ),
       ),
+    );
+  }
+}
+
+class ShopNameView extends StatelessWidget {
+  const ShopNameView({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.topLeft,
       child: Container(
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(10),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
-          gradient: LinearGradient(colors: [
-            Colors.orange[700],
-            Colors.orange[400],
-          ], stops: [
-            0.3,
-            1
-          ]),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 5.0),
-              blurRadius: 5.0,
-            )
-          ],
+        width: MediaQuery.of(context).size.width - 200,
+        height: 40,
+        alignment: Alignment.topLeft,
+        padding: EdgeInsets.only(bottom: 5),
+        child: Text(
+          "地鶏炭火焼　〇〇",
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 12,
+          ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(bottom: 5),
-              child: Icon(
-                Icons.cake,
+      ),
+    );
+  }
+}
+
+class CouponExpiration extends StatelessWidget {
+  const CouponExpiration({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width - 210,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              color: Colors.orange[900],
+            ),
+            child: Text(
+              "有効期限",
+              style: TextStyle(
                 color: Colors.white,
-                size: 40,
+                fontSize: 10,
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 30),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.white,
-                  )
-                ],
-              ),
-              child: Text(
-                "飲食店辞表者様のお申し込みはこちらから",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  color: Colors.orange[900],
-                  fontSize: 14,
-                ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5),
+            child: Text(
+              "2021年1月1日",
+              style: TextStyle(
+                fontSize: 10,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
