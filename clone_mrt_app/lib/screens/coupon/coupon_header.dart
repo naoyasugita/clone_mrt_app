@@ -32,8 +32,8 @@ class CouponHeader extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
-              offset: Offset(0, 5.0),
-              blurRadius: 5.0,
+              offset: Offset(1, 2.0),
+              blurRadius: 3.0,
             )
           ],
         ),

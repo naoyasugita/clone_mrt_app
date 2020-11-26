@@ -41,7 +41,7 @@ class CouponBodyView extends StatelessWidget {
         ),
       ),
       child: Container(
-        height: 150,
+        height: 140,
         margin: EdgeInsets.only(
           right: 10,
           bottom: 10,
@@ -53,8 +53,8 @@ class CouponBodyView extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
-              offset: Offset(0, 5.0),
-              blurRadius: 5.0,
+              offset: Offset(1, 2.0),
+              blurRadius: 3.0,
             )
           ],
         ),
