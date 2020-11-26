@@ -1,4 +1,5 @@
 import 'package:clone_mrt_app/constants.dart';
+import 'package:clone_mrt_app/models/coupon.dart';
 import 'package:clone_mrt_app/screens/coupon/coupon_header.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,6 @@ class CouponView extends StatelessWidget {
           children: [
             CouponHeader(),
             CouponBodyView(),
-            CouponBodyView(),
-            CouponBodyView(),
-            CouponBodyView(),
           ],
         ),
       ),
@@ -32,65 +30,75 @@ class CouponBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) {
-            return Scaffold();
-          },
-        ),
-      ),
-      child: Container(
-        height: 140,
-        margin: EdgeInsets.only(
-          right: 10,
-          bottom: 10,
-          left: 10,
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(kCouponRadius),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(1, 2.0),
-              blurRadius: 3.0,
-            )
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              height: 150,
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(kCouponRadius),
-                  bottomLeft: Radius.circular(kCouponRadius),
-                ),
-                child: Image.asset("assets/coupon.png"),
-              ),
-              decoration: BoxDecoration(
-                border: Border(
-                  right: BorderSide(
-                    width: 1,
-                    color: Colors.orange,
-                    style: BorderStyle.solid,
-                  ),
-                ),
+    return ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: couponList.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return Scaffold();
+                },
               ),
             ),
-            CouponOverview(),
-          ],
-        ),
-      ),
-    );
+            child: Container(
+              height: 140,
+              margin: EdgeInsets.only(
+                right: 10,
+                bottom: 10,
+                left: 10,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(kCouponRadius),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(1, 2.0),
+                    blurRadius: 3.0,
+                  )
+                ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    height: 150,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(kCouponRadius),
+                        bottomLeft: Radius.circular(kCouponRadius),
+                      ),
+                      child: Image.asset("assets/coupon.png"),
+                    ),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        right: BorderSide(
+                          width: 1,
+                          color: Colors.orange,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
+                  ),
+                  CouponOverview(
+                    index,
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
 
 class CouponOverview extends StatelessWidget {
-  const CouponOverview({
+  const CouponOverview(
+    this.index, {
     Key key,
   }) : super(key: key);
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +106,7 @@ class CouponOverview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        CouponName(),
+        CouponName(index),
         Image.asset(
           "assets/border.png",
           height: 10,
@@ -110,7 +118,7 @@ class CouponOverview extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(5),
               child: Image.asset(
-                "assets/coupon.png",
+                couponList[index].shop.image,
                 width: 100,
                 height: 60,
                 fit: BoxFit.cover,
@@ -119,8 +127,8 @@ class CouponOverview extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ShopNameView(),
-                CouponExpiration(),
+                ShopNameView(index),
+                CouponExpiration(index),
               ],
             ),
           ],
@@ -131,9 +139,11 @@ class CouponOverview extends StatelessWidget {
 }
 
 class CouponName extends StatelessWidget {
-  const CouponName({
+  const CouponName(
+    this.index, {
     Key key,
   }) : super(key: key);
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +153,7 @@ class CouponName extends StatelessWidget {
       height: 55,
       padding: EdgeInsets.all(5),
       child: Text(
-        "赤鶏もも炭火焼き（小）もちかえりプレゼント",
+        couponList[index].name,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
@@ -156,9 +166,11 @@ class CouponName extends StatelessWidget {
 }
 
 class ShopNameView extends StatelessWidget {
-  const ShopNameView({
+  const ShopNameView(
+    this.index, {
     Key key,
   }) : super(key: key);
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +182,7 @@ class ShopNameView extends StatelessWidget {
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(bottom: 5),
         child: Text(
-          "地鶏炭火焼　〇〇",
+          couponList[index].shop.name,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -183,9 +195,11 @@ class ShopNameView extends StatelessWidget {
 }
 
 class CouponExpiration extends StatelessWidget {
-  const CouponExpiration({
+  const CouponExpiration(
+    this.index, {
     Key key,
   }) : super(key: key);
+  final index;
 
   @override
   Widget build(BuildContext context) {
@@ -213,7 +227,7 @@ class CouponExpiration extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 5),
             child: Text(
-              "2021年1月1日",
+              couponList[index].expirationDate,
               style: TextStyle(
                 fontSize: 10,
               ),
