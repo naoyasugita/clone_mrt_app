@@ -21,7 +21,7 @@ class CouponHeader extends StatelessWidget {
         padding: EdgeInsets.all(10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(kCouponRadius),
           gradient: LinearGradient(colors: [
             Colors.orange[700],
             Colors.orange[400],

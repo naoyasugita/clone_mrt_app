@@ -49,7 +49,7 @@ class CouponBodyView extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(kBorderRadius),
+          borderRadius: BorderRadius.circular(kCouponRadius),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
