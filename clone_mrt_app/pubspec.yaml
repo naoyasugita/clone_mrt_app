@@ -38,6 +38,7 @@ flutter:
     - assets/tv_top.png
     - assets/coupon.png
     - assets/border.png
+    - assets/dummy_shop_image.png
     - assets/twitter_logo.png
     - assets/weather/sunny.png
     - assets/weather/cloudy.png
