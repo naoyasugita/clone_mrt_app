@@ -62,7 +62,13 @@ class CouponBodyView extends StatelessWidget {
           children: [
             Container(
               height: 150,
-              child: Image.asset("assets/coupon.png"),
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(kCouponRadius),
+                  bottomLeft: Radius.circular(kCouponRadius),
+                ),
+                child: Image.asset("assets/coupon.png"),
+              ),
               decoration: BoxDecoration(
                 border: Border(
                   right: BorderSide(
