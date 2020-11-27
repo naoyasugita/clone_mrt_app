@@ -11,10 +11,9 @@ Future<void> showCoupon(BuildContext context, int index) {
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text("お手数おかけしますが、本クーポンの使用をご確認いただけましたら、[使用済みにする]ボタンを押してください。"),
+              Text("お手数をおかけしますが、本クーポンの使用をご確認いただけましたら、[使用済みにする]ボタンを押してください。"),
               Container(
                 padding: EdgeInsets.all(4),
-                margin: EdgeInsets.all(10),
                 color: Colors.orange[900],
                 child: Column(
                   children: [
@@ -38,18 +37,30 @@ Future<void> showCoupon(BuildContext context, int index) {
                     ),
                     Container(
                       color: Colors.white,
+                      width: double.infinity,
                       child: Column(
                         children: [
-                          Text(couponList[index].message),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              bottom: 10,
+                            ),
+                            child: Text(
+                              couponList[index].message,
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                          ),
                           Text(
                             "有効期限：" + couponList[index].expirationDate,
                             style: TextStyle(
                               color: Colors.red,
+                              fontSize: 12,
                             ),
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
