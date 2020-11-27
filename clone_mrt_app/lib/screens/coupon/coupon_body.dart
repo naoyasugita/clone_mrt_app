@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/coupon.dart';
+import 'package:clone_mrt_app/screens/coupon/coupon_detail.dart';
 import 'package:clone_mrt_app/screens/coupon/coupon_header.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class CouponBodyView extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return Scaffold();
+                  return CouponDetailBody(index);
                 },
               ),
             ),
