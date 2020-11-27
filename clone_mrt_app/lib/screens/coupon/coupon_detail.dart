@@ -25,6 +25,7 @@ class CouponDetailBody extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.all(10),
+              padding: EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(kBorderRadius),
                 color: Colors.white,
@@ -117,6 +118,7 @@ class ShopInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
+        top: 2,
         right: 4,
         bottom: 5,
         left: 4,
@@ -138,6 +140,7 @@ class ShopTel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
+        top: 2,
         right: 4,
         bottom: 5,
         left: 4,
@@ -179,6 +182,7 @@ class ShopLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
+        top: 2,
         right: 4,
         bottom: 5,
         left: 4,
@@ -293,10 +297,13 @@ class CouponContent extends StatelessWidget {
             child: Column(
               children: [
                 Text(couponList[index].message),
-                Text(
-                  "有効期限：" + couponList[index].expirationDate,
-                  style: TextStyle(
-                    color: Colors.red,
+                Padding(
+                  padding: EdgeInsets.only(top: 6),
+                  child: Text(
+                    "有効期限：" + couponList[index].expirationDate,
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
                   ),
                 ),
                 GestureDetector(
@@ -307,7 +314,7 @@ class CouponContent extends StatelessWidget {
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.7,
                       margin: EdgeInsets.symmetric(
-                        vertical: 10,
+                        vertical: 16,
                       ),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
