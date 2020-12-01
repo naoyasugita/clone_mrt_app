@@ -2,6 +2,7 @@ import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/header_tab.dart';
 import 'package:clone_mrt_app/screens/apply_post/apply_post_body.dart';
 import 'package:clone_mrt_app/screens/broadcast/broadcast_body.dart';
+import 'package:clone_mrt_app/screens/coupon/coupon_body.dart';
 import 'package:clone_mrt_app/screens/event/event_body.dart';
 import 'package:clone_mrt_app/screens/breaking_news/breaking_news_body.dart';
 import 'package:clone_mrt_app/screens/holiday_doctor/holiday_doctor_body.dart';
@@ -102,6 +103,7 @@ class Body extends StatelessWidget {
         BreakingNewsView(),
         PresentView(),
         ApplyPostView(),
+        CouponView(),
         OvercomeView(),
         TVView(),
         RadioView(),
