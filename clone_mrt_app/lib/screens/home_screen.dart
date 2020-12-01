@@ -165,6 +165,7 @@ class Body extends StatelessWidget {
                                 ),
                                 child: Text(
                                   "今期ドラマ番組オリジナルグッズを\n合計で30名様にプレゼント!!",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Colors.cyan[600],
                                     fontSize: 16,
