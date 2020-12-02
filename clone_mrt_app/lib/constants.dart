@@ -11,3 +11,6 @@ const kCouponRadius = 10.0;
 const kWeatherSunny = "assets/weather/sunny.png";
 const kWeatherCloudy = "assets/weather/cloudy.png";
 const kWeatherRainy = "assets/weather/rainy.png";
+
+const copytightText =
+    "Copytight © 1996-2020 XXXXXX Co.,Ltd. All rights reserved.";

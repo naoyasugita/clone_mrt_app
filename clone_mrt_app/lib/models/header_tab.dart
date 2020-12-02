@@ -4,6 +4,7 @@ class _Tab {
 }
 
 List<_Tab> tabs = [
+  _Tab('キャンペーン'),
   _Tab('ニュース'),
   _Tab('天気'),
   _Tab('速報履歴'),
