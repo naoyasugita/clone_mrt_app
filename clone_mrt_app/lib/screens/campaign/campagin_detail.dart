@@ -68,7 +68,7 @@ class DramaImpressionsDetail extends StatelessWidget {
               ),
             ),
             Text(
-              "Copytight © 1996-2020 XXXXXX Co.,Ltd. All rights reserved.",
+              copytightText,
               style: TextStyle(
                 fontSize: 8,
               ),

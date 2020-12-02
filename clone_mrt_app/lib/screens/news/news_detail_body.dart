@@ -81,7 +81,7 @@ class NewsDetailView extends StatelessWidget {
               ),
             ),
             Text(
-              "Copytight © 1996-2020 XXXXXX Co.,Ltd. All rights reserved.",
+              copytight,
               style: TextStyle(
                 fontSize: 8,
               ),
