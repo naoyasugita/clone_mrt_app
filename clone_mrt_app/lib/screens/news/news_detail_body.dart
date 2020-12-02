@@ -81,7 +81,7 @@ class NewsDetailView extends StatelessWidget {
               ),
             ),
             Text(
-              copytight,
+              copytightText,
               style: TextStyle(
                 fontSize: 8,
               ),
