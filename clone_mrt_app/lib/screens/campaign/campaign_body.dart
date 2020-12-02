@@ -88,6 +88,8 @@ class DramaImpressionsList extends StatelessWidget {
                   ),
                   Text(
                     campaignModelList[index].post,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 12,
                     ),
