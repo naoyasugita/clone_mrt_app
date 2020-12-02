@@ -1,5 +1,6 @@
 import 'package:clone_mrt_app/constants.dart';
 import 'package:clone_mrt_app/models/campaign.dart';
+import 'package:clone_mrt_app/screens/campaign/campagin_detail.dart';
 import 'package:flutter/material.dart';
 
 class CampaignPageView extends StatelessWidget {
@@ -37,9 +38,13 @@ class DramaImpressionsList extends StatelessWidget {
       itemCount: campaignModelList.length,
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: () {
-            print("ok");
-          },
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) {
+                return DramaImpressionsDetail(index);
+              },
+            ),
+          ),
           child: Container(
             width: MediaQuery.of(context).size.width,
             margin: EdgeInsets.only(
