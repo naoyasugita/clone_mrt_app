@@ -63,49 +63,7 @@ class DramaImpressionsDetail extends StatelessWidget {
                       style: TextStyle(),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: GestureDetector(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            // TODO: リンク先を追加
-                            return;
-                          },
-                        ),
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 2,
-                          horizontal: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(kBorderRadius),
-                          color: Colors.blue,
-                        ),
-                        margin: EdgeInsets.all(20),
-                        width: 80,
-                        height: 20,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              child: Image.asset(
-                                "assets/twitter_logo.png",
-                              ),
-                            ),
-                            Text(
-                              "ツイート",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 11,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                  TweetButton(),
                 ],
               ),
             ),
@@ -116,6 +74,59 @@ class DramaImpressionsDetail extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class TweetButton extends StatelessWidget {
+  const TweetButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomRight,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              // TODO: リンク先を追加
+              return;
+            },
+          ),
+        ),
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 2,
+            horizontal: 5,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(kBorderRadius),
+            color: Colors.blue,
+          ),
+          margin: EdgeInsets.all(20),
+          width: 80,
+          height: 20,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                child: Image.asset(
+                  "assets/twitter_logo.png",
+                ),
+              ),
+              Text(
+                "ツイート",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 11,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
