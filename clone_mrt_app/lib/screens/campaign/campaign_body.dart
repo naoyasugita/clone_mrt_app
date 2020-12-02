@@ -1,4 +1,5 @@
 import 'package:clone_mrt_app/constants.dart';
+import 'package:clone_mrt_app/models/campaign.dart';
 import 'package:flutter/material.dart';
 
 class CampaignPageView extends StatelessWidget {
@@ -15,55 +16,83 @@ class CampaignPageView extends StatelessWidget {
             CampaignHeader(),
             DramaImpressions(),
             ImpressionsHeader(),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.only(
-                top: 10,
-                right: 10,
-                left: 10,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kBorderRadius),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey[400],
-                    offset: Offset(0, 3.0),
-                    blurRadius: 1.0,
-                  )
-                ],
-              ),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 5),
-                      child: Text(
-                        "title",
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "contents",
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            DramaImpressionsList(),
           ],
         ),
       ),
+    );
+  }
+}
+
+class DramaImpressionsList extends StatelessWidget {
+  const DramaImpressionsList({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: campaignModelList.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            print("ok");
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            margin: EdgeInsets.only(
+              top: 10,
+              right: 10,
+              left: 10,
+            ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(kBorderRadius),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey[400],
+                  offset: Offset(0, 3.0),
+                  blurRadius: 1.0,
+                )
+              ],
+            ),
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 5),
+                    child: Text(
+                      campaignModelList[index].dramaTitle.format(),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    campaignModelList[index].contributor.format(),
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                  Text(
+                    campaignModelList[index].post,
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
