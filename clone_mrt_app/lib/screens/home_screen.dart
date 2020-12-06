@@ -28,7 +28,7 @@ class MyAppHome extends StatelessWidget {
       backgroundColor: Colors.orange[50],
       body: SafeArea(
         child: DefaultTabController(
-          length: tabs.length,
+          length: headerTabs.length,
           child: BuildAppBar(),
         ),
       ),
@@ -70,7 +70,7 @@ class BuildAppBar extends StatelessWidget {
                 indicatorColor: kSecondaryColor,
                 isScrollable: true,
                 unselectedLabelColor: kUnselectedLabelColor,
-                tabs: tabs.map((_tab) => Tab(text: _tab.name)).toList(),
+                tabs: headerTabs.map((_tab) => Tab(text: _tab.name)).toList(),
               ),
             ),
           ),
@@ -99,6 +99,35 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: [
+        Container(
+            child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                top: 10,
+                right: 10,
+                left: 10,
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 2,
+              ),
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(kBorderRadius),
+                color: Colors.blue[900],
+              ),
+              child: Text(
+                "schedule",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+            ),
+          ],
+        )),
         CampaignPageView(),
         NewsListView(),
         WeatherView(),

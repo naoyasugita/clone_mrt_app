@@ -3,7 +3,8 @@ class _Tab {
   _Tab(this.name);
 }
 
-List<_Tab> tabs = [
+List<_Tab> headerTabs = [
+  _Tab('スポーツ'),
   _Tab('キャンペーン'),
   _Tab('ニュース'),
   _Tab('天気'),
